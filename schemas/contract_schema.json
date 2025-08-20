@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Contract Information Schema",
+  "type": "object",
+  "properties": {
+    "contract_number": {
+      "type": "string",
+      "description": "Contract number or ID"
+    },
+    "contract_title": {
+      "type": "string",
+      "description": "Title or subject of the contract"
+    },
+    "parties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Party name"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["contractor", "client", "vendor", "supplier", "other"],
+            "description": "Role of the party in the contract"
+          },
+          "address": {
+            "type": "string",
+            "description": "Party address"
+          }
+        },
+        "required": ["name", "role"]
+      },
+      "minItems": 2
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Contract effective date"
+    },
+    "expiration_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Contract expiration date"
+    },
+    "contract_value": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": "Contract value amount"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Currency code"
+        }
+      }
+    },
+    "key_terms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "term_type": {
+            "type": "string",
+            "description": "Type of term (e.g., payment, delivery, penalty)"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the term"
+          }
+        },
+        "required": ["term_type", "description"]
+      }
+    },
+    "governing_law": {
+      "type": "string",
+      "description": "Governing law or jurisdiction"
+    },
+    "termination_clauses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Termination conditions"
+    }
+  },
+  "required": [
+    "contract_number",
+    "contract_title",
+    "parties",
+    "effective_date"
+  ]
+}

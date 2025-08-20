@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Invoice Information Schema",
+  "type": "object",
+  "properties": {
+    "invoice_number": {
+      "type": "string",
+      "description": "The invoice number or ID"
+    },
+    "invoice_date": {
+      "type": "string",
+      "format": "date",
+      "description": "The date the invoice was issued"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date",
+      "description": "The payment due date"
+    },
+    "vendor": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Vendor/supplier name"
+        },
+        "address": {
+          "type": "string",
+          "description": "Vendor address"
+        },
+        "tax_id": {
+          "type": "string",
+          "description": "Vendor tax ID or VAT number"
+        }
+      },
+      "required": ["name"]
+    },
+    "customer": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Customer/buyer name"
+        },
+        "address": {
+          "type": "string",
+          "description": "Customer address"
+        }
+      },
+      "required": ["name"]
+    },
+    "line_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Item description"
+          },
+          "quantity": {
+            "type": "number",
+            "description": "Quantity of the item"
+          },
+          "unit_price": {
+            "type": "number",
+            "description": "Price per unit"
+          },
+          "total_price": {
+            "type": "number",
+            "description": "Total price for this line item"
+          }
+        },
+        "required": ["description", "quantity", "unit_price", "total_price"]
+      }
+    },
+    "subtotal": {
+      "type": "number",
+      "description": "Subtotal before taxes"
+    },
+    "tax_amount": {
+      "type": "number",
+      "description": "Total tax amount"
+    },
+    "total_amount": {
+      "type": "number",
+      "description": "Final total amount"
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency code (e.g., USD, EUR)"
+    }
+  },
+  "required": [
+    "invoice_number",
+    "invoice_date",
+    "vendor",
+    "line_items",
+    "total_amount"
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Hybrid Extraction and Classification Schema",
+  "type": "object",
+  "properties": {
+    "document_type": {
+      "type": "string",
+      "enum": ["invoice", "contract", "receipt", "report", "email"],
+      "enumDescriptions": {
+        "invoice": "A commercial document requesting payment for goods or services, containing vendor details, line items, and amounts",
+        "contract": "A legal agreement between parties outlining terms, conditions, and obligations", 
+        "receipt": "A proof of payment document showing completed transaction details",
+        "report": "An analytical or informational document presenting data, findings, or status updates",
+        "email": "Electronic correspondence between parties containing messages and attachments"
+      },
+      "description": "Classification of the document type based on content and structure",
+      "extractionType": "classification"
+    },
+    "payment_terms": {
+      "type": "object",
+      "properties": {
+        "extracted_text": {
+          "type": "string",
+          "description": "The actual payment terms text found in the document"
+        },
+        "classification": {
+          "type": "string",
+          "enum": ["standard", "non_standard", "custom", "unknown"],
+          "enumDescriptions": {
+            "standard": "Common payment terms like Net 30, Net 15, Net 60, Due on Receipt, or standard industry terms",
+            "non_standard": "Unusual payment terms, extended periods beyond 60 days, or non-typical arrangements",
+            "custom": "Negotiated or specific payment arrangements unique to the relationship",
+            "unknown": "Payment terms are unclear, ambiguous, or not specified in the document"
+          }
+        },
+        "standardized_value": {
+          "type": "string",
+          "description": "Standardized representation (e.g., 'Net 30', 'Due on Receipt', '2/10 Net 30')"
+        }
+      },
+      "required": ["extracted_text", "classification"],
+      "description": "Extract payment terms content and classify as standard/non-standard",
+      "extractionType": "hybrid"
+    },
+    "contract_value": {
+      "type": "object", 
+      "properties": {
+        "extracted_text": {
+          "type": "string",
+          "description": "The actual contract value text found in the document"
+        },
+        "amount": {
+          "type": "number",
+          "description": "Numerical value extracted from the text"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Currency code (USD, EUR, etc.)"
+        },
+        "classification": {
+          "type": "string",
+          "enum": ["low_value", "medium_value", "high_value", "enterprise"],
+          "enumDescriptions": {
+            "low_value": "Contracts under $10,000 - routine procurement",
+            "medium_value": "Contracts $10,000 - $100,000 - standard business agreements",
+            "high_value": "Contracts $100,000 - $1,000,000 - significant investments requiring approval",
+            "enterprise": "Contracts over $1,000,000 - enterprise-level agreements requiring executive approval"
+          }
+        }
+      },
+      "required": ["extracted_text", "classification"],
+      "description": "Extract contract value and classify by amount tier",
+      "extractionType": "hybrid"
+    },
+    "delivery_terms": {
+      "type": "object",
+      "properties": {
+        "extracted_text": {
+          "type": "string", 
+          "description": "The actual delivery terms text found in the document"
+        },
+        "classification": {
+          "type": "string",
+          "enum": ["standard_shipping", "expedited", "rush", "custom_delivery"],
+          "enumDescriptions": {
+            "standard_shipping": "Normal delivery timeframes (5-10 business days), standard shipping methods",
+            "expedited": "Faster delivery (1-3 business days), expedited shipping",
+            "rush": "Same day or next day delivery, rush orders",
+            "custom_delivery": "Special delivery arrangements, specific dates, or unique requirements"
+          }
+        },
+        "delivery_timeframe": {
+          "type": "string",
+          "description": "Standardized timeframe (e.g., '5-7 business days', 'Next day', 'Custom schedule')"
+        }
+      },
+      "required": ["extracted_text", "classification"],
+      "description": "Extract delivery terms and classify by urgency/type",
+      "extractionType": "hybrid"
+    },
+    "compliance_requirements": {
+      "type": "object",
+      "properties": {
+        "extracted_text": {
+          "type": "string",
+          "description": "Compliance-related text found in the document"
+        },
+        "classification": {
+          "type": "string",
+          "enum": ["fully_compliant", "partially_compliant", "non_compliant", "requires_review"],
+          "enumDescriptions": {
+            "fully_compliant": "All required compliance elements present and properly documented",
+            "partially_compliant": "Most compliance requirements met but some elements missing or unclear",
+            "non_compliant": "Missing critical compliance requirements or contains violations",
+            "requires_review": "Complex compliance situation requiring legal or expert review"
+          }
+        },
+        "missing_elements": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "List of missing compliance elements if any"
+        }
+      },
+      "required": ["extracted_text", "classification"],
+      "description": "Extract compliance text and assess compliance level",
+      "extractionType": "hybrid"
+    },
+    "contact_information": {
+      "type": "object",
+      "properties": {
+        "extracted_contacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "email": {"type": "string"},
+              "phone": {"type": "string"},
+              "role": {"type": "string"}
+            }
+          },
+          "description": "Actual contact information found in the document"
+        },
+        "classification": {
+          "type": "string",
+          "enum": ["complete", "partial", "minimal", "missing"],
+          "enumDescriptions": {
+            "complete": "Full contact details including name, email, phone, and role for key parties",
+            "partial": "Some contact information present but missing key details",
+            "minimal": "Basic contact information only (name or email)",
+            "missing": "No usable contact information found in the document"
+          }
+        }
+      },
+      "required": ["extracted_contacts", "classification"],
+      "description": "Extract contact details and classify completeness",
+      "extractionType": "hybrid"
+    },
+    "priority_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "urgent"],
+      "enumDescriptions": {
+        "low": "Routine documents with no time sensitivity, can be processed within a week",
+        "medium": "Standard business documents requiring attention within 2-3 business days", 
+        "high": "Important documents needing prompt attention within 24 hours",
+        "urgent": "Critical documents requiring immediate action within hours, containing keywords like 'urgent', 'immediate', 'deadline', 'overdue'"
+      },
+      "description": "Priority classification based on urgency indicators and content",
+      "extractionType": "classification"
+    },
+    "extracted_content": {
+      "type": "object",
+      "properties": {
+        "key_entities": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Important entities extracted from the document"
+        },
+        "classification_evidence": {
+          "type": "object",
+          "properties": {
+            "document_type_indicators": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Text snippets that indicate document type"
+            },
+            "priority_indicators": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Text snippets that indicate priority level"
+            },
+            "payment_terms_evidence": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Text snippets related to payment terms extraction and classification"
+            },
+            "contract_value_evidence": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Text snippets related to contract value"
+            },
+            "delivery_terms_evidence": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Text snippets related to delivery terms"
+            },
+            "compliance_evidence": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Text snippets relevant to compliance assessment"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["document_type", "payment_terms", "priority_level", "extracted_content"]
+}

@@ -1,0 +1,65 @@
+# Core Dependencies
+openai>=1.0.0
+anthropic>=0.7.0
+langchain>=0.1.0
+langchain-community>=0.0.20
+langchain-openai>=0.0.6
+tiktoken>=0.5.0
+
+# Vector Storage & Retrieval
+chromadb>=0.4.0
+faiss-cpu>=1.7.4
+sentence-transformers>=2.2.0
+rank-bm25>=0.2.2
+
+# Graph Processing
+networkx>=3.0
+neo4j>=5.0.0
+pyvis>=0.3.2
+graph-tool>=2.45  # Optional, for advanced graph analysis
+
+# Document Processing
+PyPDF2>=3.0.0
+python-docx>=0.8.11
+beautifulsoup4>=4.12.0
+markdown>=3.5.0
+mammoth>=1.6.0
+
+# Schema & Validation
+pydantic>=2.0.0
+jsonschema>=4.17.0
+
+# Evaluation & Metrics
+scikit-learn>=1.3.0
+rouge-score>=0.1.2
+bert-score>=0.3.13
+seqeval>=1.2.2
+
+# Visualization & Analysis
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Utilities
+tqdm>=4.65.0
+PyYAML>=6.0
+python-dotenv>=1.0.0
+click>=8.1.0
+
+# Testing & Development
+pytest>=7.4.0
+pytest-cov>=4.1.0
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0
+
+# Research & Paper Generation
+jupyter>=1.0.0
+nbconvert>=7.0.0
+jinja2>=3.1.0
+
+# Optional Dependencies for Large Language Models
+transformers
+vllm

@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Document Classification Schema",
+  "type": "object",
+  "properties": {
+    "document_type": {
+      "type": "string",
+      "enum": ["invoice", "contract", "receipt", "report", "email"],
+      "enumDescriptions": {
+        "invoice": "A commercial document requesting payment for goods or services, containing vendor details, line items, and amounts",
+        "contract": "A legal agreement between parties outlining terms, conditions, and obligations",
+        "receipt": "A proof of payment document showing completed transaction details",
+        "report": "An analytical or informational document presenting data, findings, or status updates",
+        "email": "Electronic correspondence between parties containing messages and attachments"
+      },
+      "description": "Classification of the document type based on content and structure"
+    },
+    "priority_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "urgent"],
+      "enumDescriptions": {
+        "low": "Routine documents with no time sensitivity, can be processed within a week",
+        "medium": "Standard business documents requiring attention within 2-3 business days",
+        "high": "Important documents needing prompt attention within 24 hours",
+        "urgent": "Critical documents requiring immediate action within hours, containing keywords like 'urgent', 'immediate', 'deadline', 'overdue'"
+      },
+      "description": "Priority classification based on urgency indicators and content"
+    },
+    "sentiment": {
+      "type": "string",
+      "enum": ["positive", "neutral", "negative"],
+      "enumDescriptions": {
+        "positive": "Documents with positive tone, satisfaction, appreciation, or successful outcomes",
+        "neutral": "Factual, informational documents without emotional indicators",
+        "negative": "Documents expressing dissatisfaction, complaints, problems, or conflicts"
+      },
+      "description": "Emotional tone classification of the document content"
+    },
+    "compliance_status": {
+      "type": "string",
+      "enum": ["compliant", "non_compliant", "needs_review", "unknown"],
+      "enumDescriptions": {
+        "compliant": "Document meets all regulatory and company policy requirements",
+        "non_compliant": "Document violates regulations or policies, missing required information",
+        "needs_review": "Document contains ambiguous elements requiring manual review",
+        "unknown": "Insufficient information to determine compliance status"
+      },
+      "description": "Compliance classification based on regulatory and policy requirements"
+    },
+    "extracted_content": {
+      "type": "object",
+      "properties": {
+        "key_entities": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Important entities extracted from the document"
+        },
+        "classification_evidence": {
+          "type": "object",
+          "properties": {
+            "document_type_indicators": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Text snippets that indicate document type"
+            },
+            "priority_indicators": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Text snippets that indicate priority level"
+            },
+            "sentiment_indicators": {
+              "type": "array", 
+              "items": {"type": "string"},
+              "description": "Text snippets that indicate sentiment"
+            },
+            "compliance_indicators": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Text snippets relevant to compliance"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["document_type", "priority_level", "sentiment", "extracted_content"]
+}
