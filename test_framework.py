@@ -119,7 +119,7 @@ def test_classification_extractor():
     
     try:
         from docuverse.extractors.classification import ClassificationExtractor
-        from docuverse.core.config import LLMConfig
+        from src.docuverse.core.config import LLMConfig
         
         # Create LLM config (won't actually call LLM in test)
         llm_config = LLMConfig(
