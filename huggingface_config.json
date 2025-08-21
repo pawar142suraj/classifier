@@ -1,8 +1,0 @@
-{
-  "provider": "huggingface",
-  "model_id": "microsoft/DialoGPT-large",
-  "device": "auto",
-  "quantization": "4bit",
-  "temperature": 0.1,
-  "max_tokens": 512
-}

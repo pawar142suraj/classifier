@@ -1,0 +1,28 @@
+{
+  "field": {
+    "payment_terms": {
+      "type": "string",
+      "enum": ["monthly", "yearly", "one-time"],
+      "description": "The payment terms for the contract.",
+      "enumDescriptions": {
+        "monthly": "Payment is due every month.",
+        "yearly": "Payment is due once a year.",
+        "one-time": "Payment is made in a single transaction."
+      }
+    
+    },
+    "warranty": {
+      "type": "string",
+      "description": "The warranty period for the contract.",
+      "enum": ["standard", "non_standard"],
+      "enumDescriptions": {
+        "standard": "Standard warranty is provided for 1 year.",
+        "non_standard": "Non-standard warranty is provided other than 1 year."
+      }
+    },
+    "customer_name": {
+      "type": "string",
+      "description": "The name of the customer for the contract."
+    }
+  }
+}

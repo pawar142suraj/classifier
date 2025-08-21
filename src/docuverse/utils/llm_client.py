@@ -217,9 +217,8 @@ class OllamaClient(BaseLLMClient):
     def generate(self, prompt: str, system_prompt: Optional[str] = None) -> str:
         """Generate text using Ollama."""
         payload = {
-            "model": self.config.ollama_model,
+            "model": self.config.model_name,  # Use model_name instead of ollama_model
             "prompt": prompt,
-            "system": system_prompt,
             "stream": False,
             "options": {
                 "temperature": self.config.temperature,
@@ -228,6 +227,10 @@ class OllamaClient(BaseLLMClient):
                 "repeat_penalty": self.config.repetition_penalty
             }
         }
+        
+        # Add system prompt if provided
+        if system_prompt:
+            payload["system"] = system_prompt
         
         try:
             response = requests.post(
