@@ -192,7 +192,7 @@ class ReasoningExtractor(BaseExtractor):
                 {
                     "step": step.step_number,
                     "type": step.step_type,
-                    "content": step.content[:200] + "..." if len(step.content) > 200 else step.content,
+                    "content": step.content,  # Include full content without truncation
                     "confidence": step.confidence,
                     "uncertainty_flags": step.uncertainty_flags
                 }
@@ -254,9 +254,17 @@ class ReasoningExtractor(BaseExtractor):
         }
         
         # Enhance queries with schema information
-        if self.schema and "properties" in self.schema:
+        schema_field_path = None
+        if self.schema and "field" in self.schema:
+            # Handle hybrid schema format (like contracts_schema_hybrid.json)
+            schema_field_path = "field"
+        elif self.schema and "properties" in self.schema:
+            # Handle standard JSON schema format
+            schema_field_path = "properties"
+        
+        if schema_field_path:
             schema_enhanced_queries = {}
-            for field_name, field_def in self.schema["properties"].items():
+            for field_name, field_def in self.schema[schema_field_path].items():
                 field_description = field_def.get("description", "")
                 field_keywords = field_name.replace("_", " ")
                 
@@ -265,8 +273,17 @@ class ReasoningExtractor(BaseExtractor):
                 
                 # Add enum context for classification fields
                 if "enum" in field_def:
-                    enum_context = " ".join(field_def["enum"])
-                    enhanced_query += f" categories: {enum_context}"
+                    enum_values = field_def["enum"]
+                    enum_descriptions = field_def.get("enumDescriptions", {})
+                    
+                    enum_context = []
+                    for enum_val in enum_values:
+                        if enum_val in enum_descriptions:
+                            enum_context.append(f"{enum_val}: {enum_descriptions[enum_val]}")
+                        else:
+                            enum_context.append(enum_val)
+                    
+                    enhanced_query += f" categories: {', '.join(enum_context)}"
                 
                 schema_enhanced_queries[field_name] = enhanced_query
             
@@ -289,35 +306,217 @@ class ReasoningExtractor(BaseExtractor):
     
     def _extract_with_cot(self, document_text: str, retrieval_context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """Extract using Chain of Thought reasoning with retrieval augmentation."""
-        # Step 1: Document Analysis
-        analysis_step = self._reasoning_step_document_analysis(document_text, retrieval_context)
-        
-        # Step 2: Schema-guided field identification
-        identification_step = self._reasoning_step_field_identification(document_text, retrieval_context)
-        
-        # Step 3: Information extraction with evidence
-        extraction_step = self._reasoning_step_information_extraction(document_text, retrieval_context)
-        
-        # Step 4: Structure and validate
-        structuring_step = self._reasoning_step_structure_validation(extraction_step)
-        
-        # Parse final extraction
-        extracted_data = self._parse_extraction_result(structuring_step)
-        
-        return extracted_data
-    
-    def _extract_with_react(self, document_text: str, retrieval_context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        """Extract using ReAct (Reasoning + Acting) methodology."""
+        # Generate extraction queries based on schema (like Vector RAG)
+        extraction_queries = self._generate_extraction_queries()
+
+        print(f"Generated extraction queries: {extraction_queries}")
+        # import sys
+        # sys.exit(0)
+        # Perform extractions for each field
         extracted_fields = {}
         
-        # Get target fields from schema
-        target_fields = self._get_target_fields()
-        
-        for field_name in target_fields:
-            field_result = self._react_extract_field(field_name, document_text, retrieval_context)
+        for field_name, query_info in extraction_queries.items():
+            field_result = self._cot_extract_field(
+                field_name, 
+                query_info["query"], 
+                query_info["field_def"], 
+                document_text, 
+                retrieval_context
+            )
             extracted_fields[field_name] = field_result
         
         return extracted_fields
+    
+    def _generate_extraction_queries(self) -> Dict[str, Dict[str, Any]]:
+        """Generate optimized queries for each schema field (similar to Vector RAG)."""
+        queries = {}
+        
+        # Handle different schema formats
+        schema_field_path = None
+        if self.schema and "field" in self.schema:
+            # Handle hybrid schema format (like contracts_schema_hybrid.json)
+            schema_field_path = "field"
+        elif self.schema and "properties" in self.schema:
+            # Handle standard JSON schema format
+            schema_field_path = "properties"
+        
+        if not self.schema or not schema_field_path:
+            # Fallback generic queries
+            return {
+                "general_info": {
+                    "query": "extract key information from document",
+                    "field_def": {"type": "string", "description": "General information"}
+                }
+            }
+        
+        for field_name, field_def in self.schema[schema_field_path].items():
+            # Create focused query for the field
+            field_description = field_def.get("description", "")
+            field_type = field_def.get("type", "string")
+            
+            # Base query
+            query_parts = [field_name.replace("_", " ")]
+            
+            if field_description:
+                query_parts.append(field_description)
+            
+            # Add enum context for classification fields
+            if "enum" in field_def:
+                enum_values = field_def["enum"]
+                enum_descriptions = field_def.get("enumDescriptions", {})
+                
+                enum_context = []
+                for enum_val in enum_values:
+                    if enum_val in enum_descriptions:
+                        enum_context.append(f"{enum_val}: {enum_descriptions[enum_val]}")
+                    else:
+                        enum_context.append(enum_val)
+                
+                query_parts.append("categories: " + ", ".join(enum_context))
+            
+            # Create comprehensive query
+            query = " ".join(query_parts)
+            
+            queries[field_name] = {
+                "query": query,
+                "field_def": field_def
+            }
+        
+        return queries
+    
+    def _extract_with_react(self, document_text: str, retrieval_context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """Extract using ReAct (Reasoning + Acting) methodology."""
+        # Generate extraction queries based on schema (like Vector RAG)
+        extraction_queries = self._generate_extraction_queries()
+        
+        # Perform extractions for each field
+        extracted_fields = {}
+        
+        for field_name, query_info in extraction_queries.items():
+            field_result = self._react_extract_field_structured(
+                field_name,
+                query_info["query"],
+                query_info["field_def"],
+                document_text, 
+                retrieval_context
+            )
+            extracted_fields[field_name] = field_result
+        
+        return extracted_fields
+    
+    def _cot_extract_field(self, field_name: str, query: str, field_def: Dict[str, Any], 
+                          document_text: str, retrieval_context: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+        """Extract a single field using Chain of Thought reasoning."""
+        step_num = len(self.reasoning_steps) + 1
+        
+        # Get field context from retrieval if available
+        field_context = ""
+        if retrieval_context and field_name in retrieval_context.get("reasoning_contexts", {}):
+            field_context = retrieval_context["reasoning_contexts"][field_name].get("context", "")
+        
+        # Step 1: Analyze what we need to extract
+        analysis_prompt = f"""Analyze what information needs to be extracted for the field '{field_name}'.
+
+FIELD: {field_name}
+DESCRIPTION: {field_def.get('description', '')}
+TYPE: {field_def.get('type', 'string')}
+
+DOCUMENT EXCERPT:
+{self._get_relevant_excerpt(document_text, field_name)}
+
+{f"RETRIEVAL CONTEXT: {field_context}" if field_context else ""}
+
+ANALYSIS TASK:
+Think step by step about:
+1. What specific information to look for
+2. Where it might be located in the document
+3. What format the information might be in
+4. Any challenges or ambiguities
+
+Step {step_num} - Field Analysis for '{field_name}':"""
+        
+        system_prompt = "You are an expert document analyst using chain-of-thought reasoning for information extraction."
+        
+        analysis_response = self._call_llm(analysis_prompt, system_prompt)
+        
+        # Record reasoning step
+        analysis_step = ReasoningStep(
+            step_type="thought",
+            content=analysis_response,
+            confidence=0.7,
+            step_number=step_num
+        )
+        self.reasoning_steps.append(analysis_step)
+        
+        # Step 2: Extract the specific information
+        extraction_prompt = f"""Based on the analysis, extract the specific information for '{field_name}'.
+
+PREVIOUS ANALYSIS:
+{analysis_response}
+
+EXTRACTION TASK:
+Extract the exact information for '{field_name}' from the document.
+
+Format your response as:
+EXTRACTED_CONTENT: [the exact text or information found]
+CONFIDENCE: [0.0-1.0]
+EVIDENCE: [specific text from document that supports this extraction]
+REASONING: [why this is the correct extraction]
+
+Step {step_num + 1} - Information Extraction for '{field_name}':"""
+        
+        extraction_response = self._call_llm(extraction_prompt, system_prompt)
+        
+        # Record reasoning step
+        extraction_step = ReasoningStep(
+            step_type="action",
+            content=extraction_response,
+            confidence=0.8,
+            step_number=step_num + 1
+        )
+        self.reasoning_steps.append(extraction_step)
+        
+        # Parse extraction response
+        extracted_content, confidence = self._parse_cot_extraction_response(extraction_response)
+        
+        # Structure the result based on field type (like Vector RAG)
+        if "enum" in field_def:
+            # Hybrid extraction + classification
+            classification = self._classify_content_with_reasoning(extracted_content, field_def, field_name)
+            result = {
+                "extracted_content": extracted_content,
+                "classification": classification,
+                "reasoning_metadata": {
+                    "reasoning_steps": 2,
+                    "confidence": confidence,
+                    "field_analysis": analysis_response[:200] + "..." if len(analysis_response) > 200 else analysis_response,
+                    "extraction_reasoning": extraction_response[:200] + "..." if len(extraction_response) > 200 else extraction_response
+                }
+            }
+        else:
+            # Pure extraction
+            result = {
+                "extracted_content": extracted_content,
+                "reasoning_metadata": {
+                    "reasoning_steps": 2,
+                    "confidence": confidence,
+                    "field_analysis": analysis_response[:200] + "..." if len(analysis_response) > 200 else analysis_response,
+                    "extraction_reasoning": extraction_response[:200] + "..." if len(extraction_response) > 200 else extraction_response
+                }
+            }
+        
+        # Record evidence
+        if extracted_content:
+            evidence = ExtractionEvidence(
+                field_name=field_name,
+                extracted_value=extracted_content,
+                evidence_text=self._get_relevant_excerpt(document_text, field_name)[:300],
+                confidence=confidence,
+                reasoning=f"CoT reasoning with {2} steps"
+            )
+            self.extraction_evidence.append(evidence)
+        
+        return result
     
     def _reasoning_step_document_analysis(self, document_text: str, retrieval_context: Optional[Dict[str, Any]]) -> str:
         """Step 1: Analyze document type and structure."""
@@ -516,7 +715,291 @@ Step {step_num} - Structure and Validation:"""
         
         return response
     
-    def _react_extract_field(self, field_name: str, document_text: str, retrieval_context: Optional[Dict[str, Any]]) -> Any:
+    def _react_extract_field_structured(self, field_name: str, query: str, field_def: Dict[str, Any], 
+                                        document_text: str, retrieval_context: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+        """Extract a single field using ReAct methodology with structured output."""
+        max_iterations = self.reasoning_config.max_reasoning_steps
+        
+        # Get field context from retrieval if available
+        field_context = ""
+        if retrieval_context and field_name in retrieval_context.get("reasoning_contexts", {}):
+            field_context = retrieval_context["reasoning_contexts"][field_name].get("context", "")
+        
+        extracted_value = None
+        confidence = 0.0
+        iteration_traces = []
+        
+        for iteration in range(max_iterations):
+            step_num = len(self.reasoning_steps) + 1
+            
+            # ReAct iteration
+            if iteration == 0:
+                # Initial thought
+                thought_prompt = f"""Extract '{field_name}' from the document using ReAct methodology.
+
+FIELD: {field_name}
+DESCRIPTION: {field_def.get('description', '')}
+TYPE: {field_def.get('type', 'string')}
+
+{f"ENUM OPTIONS: {field_def['enum']}" if 'enum' in field_def else ""}
+
+RELEVANT CONTEXT:
+{field_context if field_context else self._get_relevant_excerpt(document_text, field_name)}
+
+Thought {iteration + 1}: What information do I need to extract for '{field_name}' and where might it be located?"""
+            else:
+                # Continue reasoning
+                thought_prompt = f"""Continue ReAct extraction for '{field_name}'.
+
+Previous attempts: {iteration}
+Current extracted value: {extracted_value}
+Current confidence: {confidence}
+
+Thought {iteration + 1}: How can I improve or verify the extraction for '{field_name}'?"""
+            
+            system_prompt = "You are using ReAct methodology for precise information extraction."
+            
+            thought_response = self._call_llm(thought_prompt, system_prompt)
+            
+            # Record thought step
+            thought_step = ReasoningStep(
+                step_type="thought",
+                content=thought_response,
+                confidence=0.7,
+                step_number=step_num
+            )
+            self.reasoning_steps.append(thought_step)
+            
+            # Action step
+            action_prompt = f"""Based on your thought, what specific action will you take to extract '{field_name}'?
+
+Thought: {thought_response}
+
+Action {iteration + 1}: Describe the specific extraction action you will perform."""
+            
+            action_response = self._call_llm(action_prompt, system_prompt)
+            
+            # Record action step
+            action_step = ReasoningStep(
+                step_type="action",
+                content=action_response,
+                confidence=0.8,
+                step_number=step_num + 1
+            )
+            self.reasoning_steps.append(action_step)
+            
+            # Observation step - perform the extraction
+            observation_prompt = f"""Perform the action and observe the results for extracting '{field_name}'.
+
+Action: {action_response}
+
+DOCUMENT EXCERPT (relevant to {field_name}):
+{self._get_relevant_excerpt(document_text, field_name)}
+
+{f"RETRIEVAL CONTEXT: {field_context}" if field_context else ""}
+
+Observation {iteration + 1}: What did you extract for '{field_name}'?
+
+Format:
+EXTRACTED_CONTENT: [value]
+CONFIDENCE: [0.0-1.0]
+EVIDENCE: [supporting text]
+REASONING: [explanation]"""
+            
+            observation_response = self._call_llm(observation_prompt, system_prompt)
+            
+            # Parse observation
+            new_value, new_confidence = self._parse_react_observation(observation_response, field_name)
+            
+            if new_value is not None:
+                extracted_value = new_value
+                confidence = new_confidence
+            
+            # Record observation step
+            observation_step = ReasoningStep(
+                step_type="observation",
+                content=observation_response,
+                confidence=confidence,
+                step_number=step_num + 2,
+                extracted_info={field_name: extracted_value}
+            )
+            self.reasoning_steps.append(observation_step)
+            
+            # Store iteration trace
+            iteration_traces.append({
+                "iteration": iteration + 1,
+                "thought": thought_response[:100] + "..." if len(thought_response) > 100 else thought_response,
+                "action": action_response[:100] + "..." if len(action_response) > 100 else action_response,
+                "observation": observation_response[:100] + "..." if len(observation_response) > 100 else observation_response,
+                "confidence": confidence
+            })
+            
+            # Check if we have sufficient confidence
+            if confidence >= self.uncertainty_threshold:
+                break
+        
+        # Structure the result based on field type (like Vector RAG)
+        if "enum" in field_def:
+            # Hybrid extraction + classification
+            classification = self._classify_content_with_reasoning(extracted_value, field_def, field_name)
+            result = {
+                "extracted_content": extracted_value or "",
+                "classification": classification,
+                "reasoning_metadata": {
+                    "reasoning_steps": len(iteration_traces) * 3,  # thought + action + observation
+                    "iterations": len(iteration_traces),
+                    "confidence": confidence,
+                    "iteration_traces": iteration_traces
+                }
+            }
+        else:
+            # Pure extraction
+            result = {
+                "extracted_content": extracted_value or "",
+                "reasoning_metadata": {
+                    "reasoning_steps": len(iteration_traces) * 3,  # thought + action + observation
+                    "iterations": len(iteration_traces),
+                    "confidence": confidence,
+                    "iteration_traces": iteration_traces
+                }
+            }
+        
+        # Record evidence
+        if extracted_value is not None:
+            evidence = ExtractionEvidence(
+                field_name=field_name,
+                extracted_value=extracted_value,
+                evidence_text=self._get_relevant_excerpt(document_text, field_name)[:300],
+                confidence=confidence,
+                reasoning=f"ReAct extraction with {len(iteration_traces)} iterations"
+            )
+            self.extraction_evidence.append(evidence)
+        
+        return result
+    
+    def _parse_cot_extraction_response(self, response: str) -> Tuple[str, float]:
+        """Parse CoT extraction response to get content and confidence."""
+        extracted_content = ""
+        confidence = 0.5
+        
+        # Add debug logging
+        logger.debug(f"Parsing CoT response: {response[:200]}...")
+        
+        # Look for extracted content with multiple patterns
+        patterns = [
+            r"EXTRACTED_CONTENT:\s*(.+?)(?:\n|CONFIDENCE:|EVIDENCE:|REASONING:|$)",
+            r"\*\*EXTRACTED_CONTENT:\*\*\s*(.+?)(?:\n|\*\*|$)",
+            r"EXTRACTED_CONTENT:\s*\[\"(.+?)\"\]",
+            r"\*\*EXTRACTED_CONTENT:\*\*\s*\"(.+?)\"",
+            r"Extracted Value:\s*(.+?)(?:\n|$)",
+            r"\*\*Extracted Value:\*\*\s*(.+?)(?:\n|\*\*|$)",
+            r"Final Answer:\s*(.+?)(?:\n|$)",
+            r"\*\*Final Answer:\*\*\s*(.+?)(?:\n|\*\*|$)",
+        ]
+        
+        for i, pattern in enumerate(patterns):
+            content_match = re.search(pattern, response, re.IGNORECASE | re.DOTALL)
+            if content_match:
+                extracted_content = content_match.group(1).strip()
+                logger.debug(f"Found extracted content using pattern {i}: {extracted_content[:100]}")
+                break
+        
+        # Look for confidence with multiple patterns
+        confidence_patterns = [
+            r"CONFIDENCE:\s*([\d.]+)",
+            r"\*\*CONFIDENCE:\*\*\s*([\d.]+)",
+            r"Confidence:\s*([\d.]+)",
+            r"\*\*Confidence:\*\*\s*([\d.]+)",
+        ]
+        
+        for pattern in confidence_patterns:
+            confidence_match = re.search(pattern, response, re.IGNORECASE)
+            if confidence_match:
+                try:
+                    confidence = float(confidence_match.group(1))
+                    confidence = max(0.0, min(1.0, confidence))
+                    break
+                except ValueError:
+                    continue
+        
+        # Clean up extracted content
+        if extracted_content:
+            extracted_content = extracted_content.strip('"[](){}').strip()
+            # Remove markdown formatting
+            extracted_content = re.sub(r'\*\*(.+?)\*\*', r'\1', extracted_content)
+            # Remove extra whitespace and newlines
+            extracted_content = re.sub(r'\s+', ' ', extracted_content).strip()
+            if extracted_content.lower() in ['none', 'null', 'not found', 'n/a', '', 'empty']:
+                extracted_content = ""
+            elif confidence == 0.5 and extracted_content:  # If we found content but no confidence
+                confidence = 0.7  # Assign reasonable default
+        
+        logger.debug(f"Final CoT parsed result: content='{extracted_content}', confidence={confidence}")
+        return extracted_content, confidence
+    
+    def _classify_content_with_reasoning(self, content: str, field_def: Dict[str, Any], field_name: str) -> str:
+        """Classify extracted content based on field enum values with reasoning."""
+        if not content or "enum" not in field_def:
+            return field_def.get("enum", [""])[0] if "enum" in field_def else ""
+        
+        enum_values = field_def["enum"]
+        enum_descriptions = field_def.get("enumDescriptions", {})
+        
+        # Simple keyword-based classification first
+        content_lower = content.lower()
+        
+        for enum_val in enum_values:
+            # Direct match
+            if enum_val.lower() in content_lower:
+                return enum_val
+            
+            # Check description keywords
+            if enum_val in enum_descriptions:
+                desc_keywords = enum_descriptions[enum_val].lower().split()
+                if any(keyword in content_lower for keyword in desc_keywords):
+                    return enum_val
+        
+        # Use LLM for more sophisticated classification with reasoning
+        classification_prompt = f"""Classify the extracted content for field '{field_name}' into one of the predefined categories using reasoning.
+
+EXTRACTED CONTENT: {content}
+
+CLASSIFICATION OPTIONS:
+"""
+        
+        for enum_val in enum_values:
+            desc = enum_descriptions.get(enum_val, "")
+            classification_prompt += f"- {enum_val}: {desc}\n"
+        
+        classification_prompt += f"""
+REASONING TASK:
+1. Analyze the extracted content
+2. Consider each classification option
+3. Choose the most appropriate category based on the content
+4. Provide reasoning for your choice
+
+Format:
+REASONING: [step-by-step analysis]
+CLASSIFICATION: {enum_values[0]}
+
+Your response:"""
+        
+        system_prompt = "You are an expert classifier using reasoning to categorize extracted content."
+        
+        response = self._call_llm(classification_prompt, system_prompt)
+        
+        # Parse classification from response
+        classification_match = re.search(r"CLASSIFICATION:\s*(\w+)", response, re.IGNORECASE)
+        if classification_match:
+            predicted_class = classification_match.group(1).lower()
+            
+            # Find matching enum value
+            for enum_val in enum_values:
+                if enum_val.lower() == predicted_class or enum_val.lower() in predicted_class:
+                    return enum_val
+        
+        # Fallback to first enum value
+        return enum_values[0]
         """Extract a single field using ReAct methodology."""
         max_iterations = self.reasoning_config.max_reasoning_steps
         
@@ -646,7 +1129,12 @@ Format:
     
     def _get_target_fields(self) -> List[str]:
         """Get target fields from schema or use defaults."""
-        if self.schema and "properties" in self.schema:
+        # Handle different schema formats
+        if self.schema and "field" in self.schema:
+            # Handle hybrid schema format (like contracts_schema_hybrid.json)
+            return list(self.schema["field"].keys())
+        elif self.schema and "properties" in self.schema:
+            # Handle standard JSON schema format
             return list(self.schema["properties"].keys())
         
         # Default contract fields
@@ -693,27 +1181,63 @@ Format:
     
     def _parse_react_observation(self, observation_text: str, field_name: str) -> Tuple[Any, float]:
         """Parse ReAct observation to extract value and confidence."""
-        # Look for extracted value
-        value_match = re.search(r"Extracted Value:\s*(.+)", observation_text, re.IGNORECASE)
-        confidence_match = re.search(r"Confidence:\s*([\d.]+)", observation_text, re.IGNORECASE)
+        # Add debug logging
+        logger.debug(f"Parsing observation for {field_name}: {observation_text[:200]}...")
+        
+        # Look for extracted value with multiple patterns
+        patterns = [
+            r"EXTRACTED_CONTENT:\s*(.+?)(?:\n|$)",
+            r"\*\*EXTRACTED_CONTENT:\*\*\s*(.+?)(?:\n|\*\*|$)",
+            r"EXTRACTED_CONTENT:\s*\[\"(.+?)\"\]",
+            r"\*\*EXTRACTED_CONTENT:\*\*\s*\"(.+?)\"",
+            r"Extracted Value:\s*(.+?)(?:\n|$)",
+            r"\*\*Extracted Value:\*\*\s*(.+?)(?:\n|\*\*|$)",
+        ]
         
         extracted_value = None
+        for i, pattern in enumerate(patterns):
+            value_match = re.search(pattern, observation_text, re.IGNORECASE | re.DOTALL)
+            if value_match:
+                value_text = value_match.group(1).strip()
+                # Clean up the value
+                value_text = value_text.strip('"[](){}').strip()
+                # Remove markdown formatting
+                value_text = re.sub(r'\*\*(.+?)\*\*', r'\1', value_text)
+                # Remove leading/trailing whitespace and newlines
+                value_text = re.sub(r'^\s*\n+|\n+\s*$', '', value_text).strip()
+                
+                if value_text and value_text.lower() not in ['none', 'null', 'not found', 'n/a', '', 'empty']:
+                    extracted_value = value_text
+                    logger.debug(f"Found extracted content using pattern {i}: {value_text[:100]}")
+                    break
+        
+        if not extracted_value:
+            logger.debug(f"No extracted content found for {field_name}. Full observation: {observation_text}")
+        
+        # Look for confidence with multiple patterns
+        confidence_patterns = [
+            r"CONFIDENCE:\s*([\d.]+)",
+            r"\*\*CONFIDENCE:\*\*\s*([\d.]+)",
+            r"Confidence:\s*([\d.]+)",
+            r"\*\*Confidence:\*\*\s*([\d.]+)",
+        ]
+        
         confidence = 0.0
+        for pattern in confidence_patterns:
+            confidence_match = re.search(pattern, observation_text, re.IGNORECASE)
+            if confidence_match:
+                try:
+                    confidence = float(confidence_match.group(1))
+                    confidence = max(0.0, min(1.0, confidence))
+                    break
+                except ValueError:
+                    continue
         
-        if value_match:
-            value_text = value_match.group(1).strip()
-            # Clean up the value
-            value_text = value_text.strip('"[](){}').strip()
-            if value_text.lower() not in ['none', 'null', 'not found', 'n/a', '']:
-                extracted_value = value_text
+        # If no confidence found but we have content, assign reasonable confidence
+        if extracted_value and confidence == 0.0:
+            confidence = 0.7  # Default confidence when content is found
         
-        if confidence_match:
-            try:
-                confidence = float(confidence_match.group(1))
-                confidence = max(0.0, min(1.0, confidence))  # Clamp to [0, 1]
-            except ValueError:
-                confidence = 0.5
-        
+        logger.debug(f"Final parsed result for {field_name}: value='{extracted_value}', confidence={confidence}")
         return extracted_value, confidence
     
     def _parse_extraction_evidence(self, extraction_text: str):

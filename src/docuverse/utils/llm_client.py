@@ -97,6 +97,73 @@ class OpenAIClient(BaseLLMClient):
         return (tokens / 1000) * rate
 
 
+class AzureOpenAIClient(BaseLLMClient):
+    """Azure OpenAI API client."""
+    
+    def __init__(self, config: LLMConfig):
+        super().__init__(config)
+        try:
+            import openai
+            self.client = openai.AzureOpenAI(
+                api_key=config.api_key,
+                azure_endpoint=config.azure_endpoint,
+                azure_deployment=config.azure_deployment,
+                api_version=config.azure_api_version
+            )
+        except ImportError:
+            raise ImportError("OpenAI package not installed. Run: pip install openai")
+    
+    def generate(self, prompt: str, system_prompt: Optional[str] = None) -> str:
+        """Generate text using Azure OpenAI API."""
+        messages = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+        messages.append({"role": "user", "content": prompt})
+        
+        try:
+            response = self.client.chat.completions.create(
+                model=self.config.azure_deployment,  # Use deployment name for Azure
+                messages=messages,
+                temperature=self.config.temperature,
+                max_tokens=self.config.max_tokens,
+                top_p=self.config.top_p,
+                frequency_penalty=self.config.frequency_penalty,
+                presence_penalty=self.config.presence_penalty
+            )
+            
+            self.request_count += 1
+            if response.usage:
+                self.total_tokens += response.usage.total_tokens
+                # Azure pricing is similar to OpenAI
+                self.total_cost += self._calculate_azure_cost(response.usage.total_tokens)
+            
+            return response.choices[0].message.content
+            
+        except Exception as e:
+            logger.error(f"Azure OpenAI API error: {e}")
+            raise
+    
+    def _calculate_azure_cost(self, tokens: int) -> float:
+        """Rough cost calculation for Azure OpenAI models."""
+        # These are approximate rates - update with current Azure pricing
+        cost_per_1k_tokens = {
+            "gpt-4": 0.03,
+            "gpt-4-turbo": 0.01,
+            "gpt-35-turbo": 0.002,  # Azure uses gpt-35-turbo instead of gpt-3.5-turbo
+            "gpt-3.5-turbo": 0.002
+        }
+        
+        # Try to match deployment name to model type
+        model_key = "gpt-35-turbo"  # Default
+        if "gpt-4" in self.config.azure_deployment.lower():
+            model_key = "gpt-4-turbo" if "turbo" in self.config.azure_deployment.lower() else "gpt-4"
+        elif "gpt-35" in self.config.azure_deployment.lower() or "gpt-3.5" in self.config.azure_deployment.lower():
+            model_key = "gpt-35-turbo"
+        
+        rate = cost_per_1k_tokens.get(model_key, 0.01)
+        return (tokens / 1000) * rate
+
+
 class AnthropicClient(BaseLLMClient):
     """Anthropic Claude API client."""
     
@@ -259,6 +326,8 @@ class HuggingFaceClient(BaseLLMClient):
             from transformers import AutoTokenizer, AutoModelForCausalLM
             import torch
             
+            self.torch = torch  # Store torch reference
+            
             self.tokenizer = AutoTokenizer.from_pretrained(
                 config.hf_model_id,
                 token=config.hf_token
@@ -291,7 +360,7 @@ class HuggingFaceClient(BaseLLMClient):
         try:
             inputs = self.tokenizer.encode(full_prompt, return_tensors="pt")
             
-            with torch.no_grad():
+            with self.torch.no_grad():
                 outputs = self.model.generate(
                     inputs,
                     max_new_tokens=self.config.max_tokens,
@@ -325,6 +394,9 @@ class LLMClientFactory:
         
         if config.provider == LLMProvider.OPENAI:
             return OpenAIClient(config)
+        
+        elif config.provider == LLMProvider.AZURE_OPENAI:
+            return AzureOpenAIClient(config)
         
         elif config.provider == LLMProvider.ANTHROPIC:
             return AnthropicClient(config)
