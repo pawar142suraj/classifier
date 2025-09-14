@@ -1,0 +1,11 @@
+{
+  "payment_terms": {
+    "value": "Payment due within 45 days",
+    "classification": "extended"
+  },
+  "warranty": {
+    "value": "6-month full warranty",
+    "classification": "full"
+  },
+  "customer_name": "Digital Dynamics"
+}

@@ -1,0 +1,14 @@
+{
+  "template_type": "purchase_order",
+  "generated": true,
+  "variables": {
+    "company_a": "BetaWorks LLC",
+    "customer_name": "Digital Dynamics",
+    "customer_address": "987 Tech Lane, Innovation Hub",
+    "payment_terms": "Cash on delivery",
+    "warranty": "No warranty",
+    "delivery_date": "2024-03-15",
+    "po_number": "PO-2024-003",
+    "amount": "25,000"
+  }
+}

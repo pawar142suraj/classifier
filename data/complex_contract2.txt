@@ -1,0 +1,400 @@
+CONSTRUCTION SERVICES AGREEMENT
+
+Contract No: CSA-2024-INFRA-4521
+Project: Metropolitan Industrial Complex - Phase III Expansion
+Effective Date: April 1, 2024
+Completion Date: September 30, 2025
+
+This Construction Services Agreement ("Agreement") is entered into on April 1, 2024, between Apex Construction Group LLC, a Delaware limited liability company with principal offices at 8900 Industrial Drive, Houston, TX 77002 ("Contractor" or "Apex"), and Sterling Development Corporation, a Texas corporation with principal offices at 2100 Commerce Street, Dallas, TX 75201 ("Owner" or "Sterling").
+
+RECITALS
+
+WHEREAS, Owner desires to construct a 450,000 square foot industrial manufacturing facility with associated infrastructure improvements ("Project") located at 15000 Enterprise Boulevard, Richardson, TX 75081;
+
+WHEREAS, Contractor represents that it is qualified, experienced, and properly licensed to perform construction services of the type and scope required for the Project;
+
+WHEREAS, the parties wish to establish terms and conditions for Contractor's performance of construction services;
+
+NOW, THEREFORE, for valuable consideration, the parties agree as follows:
+
+ARTICLE I - PROJECT DESCRIPTION AND SCOPE
+
+1.1 Project Overview. The Project consists of:
+   (a) Design-build construction of 450,000 SF manufacturing facility
+   (b) Site preparation including grading, utilities, and drainage
+   (c) Parking facilities for 800 vehicles
+   (d) Loading dock complex with 24 bays
+   (e) Administrative office space (75,000 SF)
+   (f) Quality control laboratory (15,000 SF)
+   (g) Warehouse and distribution areas (360,000 SF)
+
+1.2 Contract Documents. The work shall be performed in accordance with:
+   (a) This Agreement and all amendments
+   (b) Drawings and specifications dated March 15, 2024 (Exhibit A)
+   (c) Technical specifications and performance requirements (Exhibit B)
+   (d) Environmental compliance requirements (Exhibit C)
+   (e) Safety and security protocols (Exhibit D)
+
+1.3 Permits and Approvals. Contractor shall obtain all necessary permits, licenses, and approvals including:
+   (a) Building permits from City of Richardson
+   (b) Environmental permits from Texas Commission on Environmental Quality
+   (c) Utility connection approvals
+   (d) Fire department and safety approvals
+   (e) Occupancy certificates upon completion
+
+ARTICLE II - CONTRACT PRICE AND PAYMENT TERMS
+
+2.1 Contract Price. The total contract price is $47,500,000 (Forty-Seven Million Five Hundred Thousand Dollars), broken down as follows:
+   (a) Site preparation and utilities: $4,200,000
+   (b) Building construction: $35,800,000
+   (c) Mechanical, electrical, plumbing: $5,100,000
+   (d) Site improvements and landscaping: $1,200,000
+   (e) Contingency (3%): $1,200,000
+
+2.2 Payment Schedule. Owner shall pay Contractor according to the following milestone schedule:
+   (a) Contract execution: $2,375,000 (5%)
+   (b) Site preparation completion: $4,750,000 (10%)
+   (c) Foundation completion: $7,125,000 (15%)
+   (d) Structural completion: $14,250,000 (30%)
+   (e) Mechanical rough-in completion: $9,500,000 (20%)
+   (f) Substantial completion: $7,125,000 (15%)
+   (g) Final completion: $2,375,000 (5%)
+
+2.3 Progress Payments. Monthly progress payments shall be made based on work completed, less:
+   (a) Ten percent (10%) retainage on all payments
+   (b) Previous payments made
+   (c) Disputed amounts
+   (d) Amounts for deficient work
+
+2.4 Retainage Release. Retainage shall be released as follows:
+   (a) 50% upon substantial completion
+   (b) Remaining 50% upon final completion and acceptance
+   (c) Full release after one-year warranty period
+
+2.5 Change Orders. Contract price may be adjusted only through written change orders executed by both parties, specifying:
+   (a) Detailed scope of change
+   (b) Cost impact (addition or credit)
+   (c) Schedule impact
+   (d) Impact on other work
+
+ARTICLE III - TIME OF PERFORMANCE
+
+3.1 Commencement. Work shall commence within ten (10) days of contract execution and receipt of notice to proceed.
+
+3.2 Substantial Completion. Contractor shall achieve substantial completion by August 31, 2025.
+
+3.3 Final Completion. Final completion shall occur no later than September 30, 2025.
+
+3.4 Time is of the Essence. Time is of the essence in this Agreement. Failure to meet completion dates may result in liquidated damages.
+
+3.5 Extensions. Time extensions may be granted only for:
+   (a) Changes ordered by Owner
+   (b) Unforeseeable conditions
+   (c) Force majeure events
+   (d) Owner-caused delays
+
+ARTICLE IV - LIQUIDATED DAMAGES
+
+4.1 Delay Damages. If substantial completion is not achieved by the contract date, Contractor shall pay Owner liquidated damages of $10,000 per calendar day of delay.
+
+4.2 Performance Damages. Additional liquidated damages may apply for:
+   (a) Failure to meet environmental compliance: $5,000 per day
+   (b) Safety violations: $2,500 per incident
+   (c) Quality deficiencies: $1,000 per day until corrected
+
+4.3 Damage Limitations. Total liquidated damages shall not exceed 10% of the contract price.
+
+ARTICLE V - WARRANTY PROVISIONS
+
+5.1 Workmanship Warranty. Contractor warrants all work against defects in materials and workmanship for two (2) years from final acceptance.
+
+5.2 Systems Warranty. Mechanical, electrical, and plumbing systems are warranted for five (5) years from final acceptance.
+
+5.3 Roofing Warranty. Roofing systems carry a ten (10) year warranty against leaks and material defects.
+
+5.4 Structural Warranty. Structural elements are warranted for ten (10) years against defects in design and construction.
+
+5.5 Warranty Exclusions. Warranties do not cover:
+   (a) Normal wear and tear
+   (b) Damage from abuse or misuse
+   (c) Damage from Owner modifications
+   (d) Acts of God or force majeure
+
+ARTICLE VI - INSURANCE AND BONDING
+
+6.1 Required Insurance. Contractor shall maintain:
+   (a) Commercial General Liability: $5,000,000 per occurrence
+   (b) Automobile Liability: $2,000,000 per occurrence
+   (c) Workers' Compensation: As required by Texas law
+   (d) Professional Liability: $3,000,000 per claim
+   (e) Builder's Risk: Full replacement cost of project
+   (f) Environmental Liability: $10,000,000 per claim
+
+6.2 Additional Requirements. Insurance policies shall:
+   (a) Name Owner as additional insured
+   (b) Include primary and non-contributory provisions
+   (c) Provide 30-day cancellation notice
+   (d) Be placed with A.M. Best A-rated insurers
+
+6.3 Performance Bond. Contractor shall provide a performance bond equal to 100% of the contract price, guaranteeing faithful performance of all obligations.
+
+6.4 Payment Bond. Contractor shall provide a payment bond equal to 100% of the contract price, protecting subcontractors and suppliers.
+
+6.5 Warranty Bond. A warranty bond equal to 10% of the contract price shall guarantee warranty obligations.
+
+ARTICLE VII - SUBCONTRACTORS AND LABOR
+
+7.1 Subcontractor Approval. All subcontractors must be approved by Owner prior to engagement. Contractor shall provide:
+   (a) Subcontractor qualifications and experience
+   (b) Financial statements and bonding capacity
+   (c) Safety records and certifications
+   (d) Insurance certificates
+
+7.2 Subcontractor Flow-Down. All subcontractors shall be bound by terms equivalent to those binding Contractor, including:
+   (a) Safety requirements
+   (b) Quality standards
+   (c) Schedule requirements
+   (d) Insurance and bonding obligations
+
+7.3 Prevailing Wages. This project is subject to Texas prevailing wage requirements. Contractor shall:
+   (a) Pay prevailing wages to all workers
+   (b) Maintain certified payroll records
+   (c) Post wage determinations
+   (d) Submit weekly payroll certifications
+
+7.4 Labor Standards. Contractor shall comply with:
+   (a) Davis-Bacon Act requirements
+   (b) Equal Employment Opportunity provisions
+   (c) Texas Labor Code requirements
+   (d) Federal labor standards
+
+ARTICLE VIII - ENVIRONMENTAL AND REGULATORY COMPLIANCE
+
+8.1 Environmental Compliance. Contractor shall comply with all environmental laws including:
+   (a) Clean Air Act requirements
+   (b) Clean Water Act provisions
+   (c) Resource Conservation and Recovery Act
+   (d) Texas Environmental Quality standards
+
+8.2 Permits and Monitoring. Contractor shall:
+   (a) Obtain all required environmental permits
+   (b) Conduct required environmental monitoring
+   (c) Maintain compliance records
+   (d) Report any environmental incidents immediately
+
+8.3 Hazardous Materials. If hazardous materials are encountered:
+   (a) Work shall stop immediately in affected areas
+   (b) Owner and authorities shall be notified
+   (c) Remediation shall be performed by certified contractors
+   (d) Work may resume only after clearance
+
+8.4 Federal Requirements. Project is subject to federal requirements including:
+   (a) Davis-Bacon prevailing wage requirements
+   (b) Equal Employment Opportunity provisions
+   (c) Buy American Act requirements for steel and iron
+   (d) Federal acquisition regulations for materials
+
+ARTICLE IX - SAFETY AND SECURITY
+
+9.1 Safety Program. Contractor shall implement comprehensive safety program including:
+   (a) Site-specific safety plan
+   (b) Daily safety meetings
+   (c) Personal protective equipment requirements
+   (d) Incident reporting and investigation procedures
+
+9.2 Safety Training. All personnel must complete:
+   (a) 10-hour OSHA construction safety training
+   (b) Site-specific safety orientation
+   (c) Equipment-specific training
+   (d) Emergency response training
+
+9.3 Security Requirements. Site security measures include:
+   (a) Controlled access with ID badges
+   (b) Background checks for all personnel
+   (c) 24/7 security monitoring
+   (d) Cybersecurity protocols for project data
+
+9.4 Drug Testing. All site personnel are subject to:
+   (a) Pre-assignment drug testing
+   (b) Random drug testing program
+   (c) Post-incident testing
+   (d) For-cause testing
+
+ARTICLE X - QUALITY CONTROL AND INSPECTIONS
+
+10.1 Quality Assurance. Contractor shall maintain quality control program including:
+   (a) Daily inspection and testing
+   (b) Material verification and certification
+   (c) Installation verification procedures
+   (d) Non-conformance reporting and correction
+
+10.2 Third-Party Testing. Independent testing agencies shall verify:
+   (a) Concrete strength and placement
+   (b) Structural steel fabrication and erection
+   (c) Mechanical and electrical systems performance
+   (d) Environmental systems compliance
+
+10.3 Owner Inspections. Owner reserves right to inspect all work and may:
+   (a) Reject non-conforming work
+   (b) Require corrective action
+   (c) Stop work for safety or quality issues
+   (d) Engage independent inspectors
+
+ARTICLE XI - INDEMNIFICATION
+
+11.1 Contractor Indemnification. Contractor shall defend, indemnify, and hold harmless Owner from claims arising from:
+   (a) Contractor's performance of work
+   (b) Negligent acts or omissions of Contractor or subcontractors
+   (c) Bodily injury or property damage on site
+   (d) Violations of laws or regulations
+
+11.2 Professional Liability. Contractor shall indemnify Owner for design-related claims arising from:
+   (a) Errors or omissions in design
+   (b) Failure to meet performance specifications
+   (c) Code violations in design
+   (d) Professional negligence
+
+11.3 Environmental Indemnification. Contractor shall indemnify Owner for environmental claims resulting from:
+   (a) Contractor's activities on site
+   (b) Improper handling of hazardous materials
+   (c) Spills or releases during construction
+   (d) Violations of environmental regulations
+
+ARTICLE XII - INTELLECTUAL PROPERTY
+
+12.1 Design Ownership. Owner shall own all design documents, plans, and specifications developed for the Project.
+
+12.2 Construction Methods. Contractor retains rights to proprietary construction methods and techniques used in Project performance.
+
+12.3 As-Built Documentation. Contractor shall provide Owner with complete as-built drawings and documentation, including:
+   (a) Architectural and structural drawings
+   (b) Mechanical, electrical, and plumbing drawings
+   (c) Site utility drawings
+   (d) Equipment manuals and warranties
+
+ARTICLE XIII - DISPUTES AND CLAIMS
+
+13.1 Claims Procedure. All claims must be submitted in writing within 30 days of occurrence, including:
+   (a) Detailed description of claim
+   (b) Supporting documentation
+   (c) Requested relief
+   (d) Impact on schedule and cost
+
+13.2 Dispute Resolution. Disputes shall be resolved through:
+   (a) Direct negotiation between project managers
+   (b) Mediation with agreed mediator
+   (c) Binding arbitration under AAA Construction Rules
+   (d) Litigation only if arbitration is unavailable
+
+13.3 Continued Performance. Pending dispute resolution, Contractor shall continue performance unless directed otherwise by Owner.
+
+ARTICLE XIV - TERMINATION
+
+14.1 Termination for Convenience. Owner may terminate for convenience with 30 days written notice. Upon termination, Owner shall pay for:
+   (a) Work satisfactorily performed
+   (b) Materials properly ordered
+   (c) Reasonable demobilization costs
+   (d) Subcontractor termination costs
+
+14.2 Termination for Default. Either party may terminate for default if the other party:
+   (a) Materially breaches the Agreement
+   (b) Becomes insolvent or bankrupt
+   (c) Fails to make required payments
+   (d) Abandons the work
+
+14.3 Remedies Upon Default. Upon Contractor default, Owner may:
+   (a) Complete work with other contractors
+   (b) Use performance bond proceeds
+   (c) Recover additional costs from Contractor
+   (d) Pursue all available legal remedies
+
+ARTICLE XV - SMALL BUSINESS PARTICIPATION
+
+15.1 Small Business Goals. Contractor shall make good faith efforts to achieve:
+   (a) 25% participation by small businesses
+   (b) 5% participation by minority-owned businesses
+   (c) 5% participation by women-owned businesses
+   (d) 3% participation by veteran-owned businesses
+
+15.2 Reporting Requirements. Contractor shall submit monthly reports documenting:
+   (a) Dollar amounts paid to small businesses
+   (b) Percentage of total contract value
+   (c) Types of work performed
+   (d) Efforts to identify additional opportunities
+
+ARTICLE XVI - SHIPPING AND DELIVERY
+
+16.1 Material Delivery. All materials and equipment shall be delivered:
+   (a) FOB job site
+   (b) With advance notice to Owner
+   (c) During approved hours (7 AM - 6 PM weekdays)
+   (d) With proper handling and storage procedures
+
+16.2 Inspection and Acceptance. Materials are subject to:
+   (a) Inspection upon delivery
+   (b) Verification against specifications
+   (c) Rejection for non-conformance
+   (d) Return of defective materials at Contractor's expense
+
+ARTICLE XVII - MISCELLANEOUS PROVISIONS
+
+17.1 Assignment. This Agreement may not be assigned without written consent of both parties.
+
+17.2 Governing Law. This Agreement shall be governed by Texas law.
+
+17.3 Lien Waiver. Contractor shall provide conditional and unconditional lien waivers with each payment request.
+
+17.4 Record Keeping. Contractor shall maintain detailed records including:
+   (a) Daily reports and logs
+   (b) Material receipts and certifications
+   (c) Payroll records
+   (d) Safety training records
+
+17.5 Notices. All notices shall be in writing and delivered to addresses specified in signature blocks.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first written above.
+
+APEX CONSTRUCTION GROUP LLC                    STERLING DEVELOPMENT CORPORATION
+
+By: /s/ Robert Martinez                       By: /s/ Jennifer Walsh
+Name: Robert Martinez                         Name: Jennifer Walsh
+Title: President                             Title: Senior Vice President, Development
+Date: April 1, 2024                         Date: April 1, 2024
+
+Address:                                     Address:
+8900 Industrial Drive                        2100 Commerce Street
+Houston, TX 77002                           Dallas, TX 75201
+Phone: (713) 555-0100                       Phone: (214) 555-0200
+Email: rmartinez@apexconstruction.com        Email: jwalsh@sterlingdev.com
+
+EXHIBIT A - DRAWINGS AND SPECIFICATIONS
+[Reference to architectural, structural, mechanical, electrical, and civil drawings dated March 15, 2024]
+
+EXHIBIT B - TECHNICAL SPECIFICATIONS
+[Detailed technical specifications for all building systems and components]
+
+EXHIBIT C - ENVIRONMENTAL COMPLIANCE REQUIREMENTS
+[Environmental protection plan and compliance procedures]
+
+EXHIBIT D - SAFETY AND SECURITY PROTOCOLS
+[Comprehensive safety plan and security procedures]
+
+EXHIBIT E - QUALITY CONTROL PROCEDURES
+[Quality assurance and testing protocols]
+
+EXHIBIT F - SCHEDULE OF VALUES
+[Detailed breakdown of contract pricing by work element]
+
+EXHIBIT G - BOND FORMS
+[Performance bond, payment bond, and warranty bond forms]
+
+EXHIBIT H - INSURANCE CERTIFICATES
+[Required insurance documentation and certificates]
+
+EXHIBIT I - SUBCONTRACTOR LIST
+[Approved subcontractors and their scope of work]
+
+EXHIBIT J - MATERIAL SPECIFICATIONS
+[Detailed specifications for all construction materials]
+
+This Construction Services Agreement contains 28 pages including exhibits and represents a comprehensive design-build construction contract with complex technical, legal, and regulatory requirements.

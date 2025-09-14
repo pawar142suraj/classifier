@@ -1,0 +1,347 @@
+PROFESSIONAL SERVICES AGREEMENT
+
+Contract Reference: PSA-2024-LEG-8934
+Effective Date: May 1, 2024
+Expiration Date: April 30, 2027
+
+This Professional Services Agreement ("Agreement") is entered into effective May 1, 2024, between Morrison, Clarke & Associates LLP, a New York limited liability partnership with principal offices at 200 Park Avenue, 45th Floor, New York, NY 10166 ("Firm" or "Morrison Clarke"), and Global Energy Solutions Inc., a Delaware corporation with headquarters at 1500 Louisiana Street, Houston, TX 77002 ("Client" or "Global Energy").
+
+RECITALS
+
+WHEREAS, Firm is a specialized law firm providing legal services in energy law, regulatory compliance, international transactions, and corporate governance;
+
+WHEREAS, Client is a diversified energy company engaged in oil and gas exploration, renewable energy development, and energy infrastructure projects worldwide;
+
+WHEREAS, Client requires ongoing legal counsel and representation for its complex domestic and international business operations;
+
+NOW, THEREFORE, the parties agree as follows:
+
+ARTICLE 1 - SCOPE OF LEGAL SERVICES
+
+1.1 Primary Legal Services. Firm shall provide comprehensive legal services including:
+   (a) Energy regulatory compliance and licensing
+   (b) International joint venture and acquisition structuring
+   (c) Environmental law and permitting
+   (d) Corporate governance and securities compliance
+   (e) Contract negotiation and drafting
+   (f) Litigation and dispute resolution
+   (g) Intellectual property protection and licensing
+   (h) Employment law and labor relations
+
+1.2 Specialized Practice Areas. Firm's services include expertise in:
+   (a) Federal Energy Regulatory Commission (FERC) matters
+   (b) Commodity Futures Trading Commission (CFTC) compliance
+   (c) Securities and Exchange Commission (SEC) reporting
+   (d) International arbitration and dispute resolution
+   (e) Cross-border merger and acquisition transactions
+   (f) Energy project finance and development
+   (g) Renewable energy tax credit structures
+   (h) Oil and gas lease negotiations
+
+1.3 Regulatory Representation. Firm shall represent Client before:
+   (a) Federal Energy Regulatory Commission
+   (b) Department of Energy
+   (c) Environmental Protection Agency
+   (d) Securities and Exchange Commission
+   (e) Commodity Futures Trading Commission
+   (f) State public utility commissions
+   (g) International arbitration panels
+   (h) Federal and state courts
+
+ARTICLE 2 - BILLING RATES AND PAYMENT TERMS
+
+2.1 Attorney Hourly Rates (Effective May 1, 2024):
+   (a) Senior Partners: $950 - $1,200 per hour
+   (b) Partners: $750 - $950 per hour
+   (c) Senior Associates: $550 - $750 per hour
+   (d) Associates: $350 - $550 per hour
+   (e) Junior Associates: $250 - $350 per hour
+   (f) Paralegals: $175 - $250 per hour
+   (g) Contract Attorneys: $200 - $400 per hour
+
+2.2 Rate Escalation. Hourly rates may be increased annually by the lesser of:
+   (a) Five percent (5%) of current rates
+   (b) Consumer Price Index increase for professional services
+   (c) Market rate adjustments as agreed by parties
+
+2.3 Alternative Fee Arrangements. For specific matters, parties may agree to:
+   (a) Fixed fee arrangements for defined scope projects
+   (b) Contingency fee arrangements for recovery matters
+   (c) Success fee bonuses for significant achievements
+   (d) Blended rate structures for high-volume work
+   (e) Budget caps with monthly spending limits
+
+2.4 Standard Payment Terms. Unless otherwise specified:
+   (a) Invoices due within fifteen (15) days of receipt
+   (b) Late payment interest at 1.5% per month
+   (c) Detailed time records with 0.1-hour increments
+   (d) Expense documentation required for reimbursement
+
+2.5 Expense Reimbursement. Client shall reimburse Firm for:
+   (a) Travel expenses including airfare, lodging, and meals
+   (b) Court filing fees and administrative costs
+   (c) Expert witness and consultant fees
+   (d) Document production and litigation support costs
+   (e) International telecommunications and courier services
+
+ARTICLE 3 - RETAINER AND BILLING PROCEDURES
+
+3.1 Monthly Retainer. Client shall pay monthly retainer of $150,000, applied against legal fees incurred during each month.
+
+3.2 Retainer Replenishment. If monthly fees exceed retainer amount, Client shall pay overage within fifteen (15) days.
+
+3.3 Unused Retainer. Unused retainer amounts carry forward to subsequent months unless Agreement terminates.
+
+3.4 Detailed Billing. All invoices shall include:
+   (a) Attorney and paralegal time descriptions
+   (b) Date, duration, and nature of services
+   (c) Matter codes and client reference numbers
+   (d) Expense details with supporting documentation
+   (e) Summary of current matter status
+
+3.5 Electronic Billing. Firm shall submit invoices through Client's electronic legal billing system, including:
+   (a) LEDES format compliance
+   (b) Task-based activity codes
+   (c) Electronic approval workflows
+   (d) Detailed matter reporting
+
+ARTICLE 4 - CONFIDENTIALITY AND ATTORNEY-CLIENT PRIVILEGE
+
+4.1 Attorney-Client Privilege. All communications between Firm and Client are protected by attorney-client privilege and work product doctrine.
+
+4.2 Confidentiality Obligations. Firm shall maintain strict confidentiality of all Client information, including:
+   (a) Business strategies and competitive information
+   (b) Financial data and transaction details
+   (c) Technical information and trade secrets
+   (d) Legal strategies and case assessments
+
+4.3 Conflict of Interest Screening. Firm maintains comprehensive conflict checking systems to prevent representation conflicts.
+
+4.4 Information Security. Firm implements advanced cybersecurity measures including:
+   (a) Multi-factor authentication for all systems
+   (b) Encrypted communication and document storage
+   (c) Regular security audits and penetration testing
+   (d) Incident response and breach notification procedures
+
+ARTICLE 5 - PROFESSIONAL LIABILITY AND INDEMNIFICATION
+
+5.1 Professional Standards. Firm warrants that legal services will be performed in accordance with applicable professional standards and rules of professional conduct.
+
+5.2 Professional Liability Insurance. Firm maintains professional liability insurance of $25,000,000 per claim and $50,000,000 aggregate.
+
+5.3 Limitation of Liability. Firm's liability for professional malpractice shall not exceed the lesser of:
+   (a) Three times the fees paid for the specific matter
+   (b) $5,000,000 per claim
+   (c) Available insurance coverage
+
+5.4 Client Indemnification. Client shall indemnify Firm for claims arising from:
+   (a) Client's failure to disclose material facts
+   (b) Client's illegal or unethical conduct
+   (c) Client's breach of this Agreement
+   (d) Third-party claims unrelated to Firm's professional conduct
+
+ARTICLE 6 - INTELLECTUAL PROPERTY AND WORK PRODUCT
+
+6.1 Client Ownership. Client owns all work product specifically prepared for Client matters, including:
+   (a) Legal memoranda and opinions
+   (b) Contract drafts and revisions
+   (c) Regulatory filings and submissions
+   (d) Case strategies and litigation documents
+
+6.2 Firm Retention Rights. Firm retains:
+   (a) General legal knowledge and experience
+   (b) Forms and precedents not client-specific
+   (c) Legal research methodologies
+   (d) General practice development materials
+
+6.3 Third-Party IP. Firm shall ensure that work product does not infringe third-party intellectual property rights.
+
+ARTICLE 7 - SUBCONTRACTORS AND CO-COUNSEL
+
+7.1 Local Counsel. Firm may engage local counsel in various jurisdictions, subject to:
+   (a) Client approval for significant matters
+   (b) Coordination of strategy and communication
+   (c) Flow-down of confidentiality and quality standards
+   (d) Direct billing arrangements or markup limitations
+
+7.2 Expert Witnesses. Firm may retain expert witnesses and consultants with Client approval, including:
+   (a) Technical experts for regulatory proceedings
+   (b) Economic experts for valuation matters
+   (c) Industry experts for complex transactions
+   (d) Forensic accountants for financial investigations
+
+7.3 Subcontractor Standards. All subconsultants must:
+   (a) Meet professional licensing requirements
+   (b) Maintain appropriate insurance coverage
+   (c) Execute confidentiality agreements
+   (d) Comply with applicable professional standards
+
+ARTICLE 8 - TERMINATION AND TRANSITION
+
+8.1 Termination Rights. Either party may terminate this Agreement:
+   (a) For convenience with sixty (60) days written notice
+   (b) For material breach with thirty (30) days cure period
+   (c) Immediately for professional misconduct or malpractice
+
+8.2 File Transition. Upon termination, Firm shall:
+   (a) Deliver complete client files within thirty (30) days
+   (b) Cooperate with successor counsel transition
+   (c) Execute file transfer acknowledgments
+   (d) Provide reasonable transition assistance
+
+8.3 Final Billing. Final invoice shall be submitted within sixty (60) days of termination, including:
+   (a) All unbilled time through termination date
+   (b) Outstanding expenses and costs
+   (c) Unused retainer refund calculation
+   (d) Final matter status reports
+
+ARTICLE 9 - REGULATORY COMPLIANCE AND ETHICS
+
+9.1 Professional Rules. Firm shall comply with all applicable professional rules including:
+   (a) New York Rules of Professional Conduct
+   (b) American Bar Association Model Rules
+   (c) Jurisdiction-specific professional standards
+   (d) International Bar Association guidelines
+
+9.2 Federal Compliance. Legal services shall comply with:
+   (a) Foreign Corrupt Practices Act requirements
+   (b) Export Administration Regulations
+   (c) Office of Foreign Assets Control sanctions
+   (d) Anti-money laundering regulations
+
+9.3 Continuing Legal Education. Firm attorneys maintain current CLE requirements and specialized certifications in relevant practice areas.
+
+ARTICLE 10 - INSURANCE AND RISK MANAGEMENT
+
+10.1 Required Insurance Coverage. Firm maintains:
+   (a) Professional Liability: $25,000,000/$50,000,000
+   (b) General Liability: $5,000,000 per occurrence
+   (c) Cyber Liability: $10,000,000 per claim
+   (d) Directors and Officers: $10,000,000
+   (e) Employment Practices Liability: $2,000,000
+
+10.2 Additional Requirements. Insurance policies include:
+   (a) Client as additional insured where applicable
+   (b) Sixty (60) day cancellation notice
+   (c) Primary and non-contributory coverage
+   (d) A.M. Best A- rating or equivalent
+
+ARTICLE 11 - SMALL BUSINESS PARTICIPATION
+
+11.1 Diverse Counsel. Firm commits to meaningful participation by:
+   (a) Minority-owned law firms: 15% of external counsel spend
+   (b) Women-owned law firms: 10% of external counsel spend
+   (c) Veteran-owned law firms: 5% of external counsel spend
+   (d) Small disadvantaged businesses: 20% of total external spend
+
+11.2 Reporting. Firm shall provide quarterly diversity reports including:
+   (a) Dollar amounts paid to diverse firms
+   (b) Types of matters handled by diverse counsel
+   (c) Percentage of total external counsel spending
+   (d) Efforts to identify additional diverse counsel opportunities
+
+ARTICLE 12 - INTERNATIONAL SERVICES AND COMPLIANCE
+
+12.1 International Capabilities. Firm provides services for Client's international operations including:
+   (a) Cross-border transaction structuring
+   (b) International joint venture formation
+   (c) Foreign regulatory compliance
+   (d) International arbitration and litigation
+
+12.2 Foreign Legal Consultants. Firm may engage foreign legal consultants in accordance with:
+   (a) Local jurisdiction requirements
+   (b) Professional conduct rules
+   (c) Confidentiality and privilege protection
+   (d) Quality control standards
+
+12.3 Export Control Compliance. Firm shall ensure all international legal services comply with:
+   (a) Export Administration Regulations
+   (b) International Traffic in Arms Regulations
+   (c) Office of Foreign Assets Control sanctions
+   (d) Country-specific legal restrictions
+
+ARTICLE 13 - TECHNOLOGY AND SECURITY
+
+13.1 Technology Platform. Firm utilizes advanced legal technology including:
+   (a) Document management and review platforms
+   (b) Electronic discovery and litigation support tools
+   (c) Regulatory filing and compliance systems
+   (d) Client collaboration portals
+
+13.2 Cybersecurity Standards. Firm maintains cybersecurity controls consistent with:
+   (a) ABA Cybersecurity Guidelines for Law Firms
+   (b) ISO 27001 information security standards
+   (c) SOC 2 Type II audit requirements
+   (d) Client-specific security requirements
+
+13.3 Data Protection. Firm complies with applicable data protection laws including:
+   (a) General Data Protection Regulation (GDPR)
+   (b) California Consumer Privacy Act (CCPA)
+   (c) New York SHIELD Act
+   (d) Industry-specific privacy requirements
+
+ARTICLE 14 - DISPUTE RESOLUTION
+
+14.1 Internal Resolution. Disputes shall first be addressed through:
+   (a) Direct communication between relationship partners
+   (b) Escalation to firm management committee
+   (c) Client executive review and discussion
+   (d) Good faith negotiation process
+
+14.2 Mediation. If internal resolution fails, disputes shall proceed to mediation before a retired judge or experienced mediator agreed upon by both parties.
+
+14.3 Arbitration. If mediation is unsuccessful, disputes shall be resolved through binding arbitration under AAA Commercial Arbitration Rules.
+
+14.4 Continued Service. Pending dispute resolution, Firm shall continue providing legal services unless directed otherwise by Client.
+
+ARTICLE 15 - GENERAL PROVISIONS
+
+15.1 Governing Law. This Agreement shall be governed by New York law.
+
+15.2 Assignment. This Agreement may not be assigned without written consent, except:
+   (a) Assignment to successor law firm in merger
+   (b) Assignment to affiliated professional entities
+   (c) Assignment in connection with practice group acquisition
+
+15.3 Force Majeure. Neither party shall be liable for delays due to circumstances beyond reasonable control, including natural disasters, terrorism, or government action.
+
+15.4 Severability. Invalid provisions shall not affect validity of remaining Agreement terms.
+
+15.5 Amendment. This Agreement may only be modified by written agreement signed by authorized representatives.
+
+15.6 Notices. All notices shall be in writing and delivered to addresses specified below.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement effective as of the date first written above.
+
+MORRISON, CLARKE & ASSOCIATES LLP           GLOBAL ENERGY SOLUTIONS INC.
+
+By: /s/ Margaret Morrison                   By: /s/ David Richardson
+Name: Margaret Morrison                     Name: David Richardson
+Title: Managing Partner                     Title: General Counsel
+Date: May 1, 2024                         Date: May 1, 2024
+
+Address:                                   Address:
+200 Park Avenue, 45th Floor               1500 Louisiana Street
+New York, NY 10166                        Houston, TX 77002
+Phone: (212) 555-0300                     Phone: (713) 555-0400
+Email: mmorrison@morrisonclarke.com        Email: drichardson@globalenergy.com
+
+EXHIBIT A - MATTER CODING SYSTEM
+[Detailed client matter coding and billing requirements]
+
+EXHIBIT B - TECHNOLOGY SPECIFICATIONS
+[Required technology platforms and security standards]
+
+EXHIBIT C - DIVERSITY REPORTING REQUIREMENTS
+[Quarterly diversity reporting templates and requirements]
+
+EXHIBIT D - RATE SCHEDULES BY PRACTICE AREA
+[Detailed hourly rates by practice area and experience level]
+
+EXHIBIT E - ALTERNATIVE FEE ARRANGEMENT GUIDELINES
+[Framework for fixed fee and alternative billing arrangements]
+
+EXHIBIT F - INTERNATIONAL SERVICE PROTOCOLS
+[Procedures for international legal services and foreign counsel coordination]
+
+This Professional Services Agreement contains 30 pages including exhibits and represents a comprehensive legal services agreement with sophisticated professional, regulatory, and international requirements.

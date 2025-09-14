@@ -20,6 +20,7 @@ import logging
 
 from .base import BaseExtractor
 from ..core.config import LLMConfig, VectorRAGConfig
+from ..utils.page_extractor import page_extractor, get_page_info, extract_text_with_pages
 
 # Try importing optional dependencies with fallbacks
 try:
@@ -52,7 +53,7 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class Chunk:
-    """Represents a document chunk with metadata."""
+    """Represents a document chunk with metadata and page information."""
     content: str
     chunk_id: str
     start_pos: int
@@ -60,6 +61,9 @@ class Chunk:
     chunk_type: str = "content"  # content, header, footer, table, etc.
     importance_score: float = 0.0
     metadata: Dict[str, Any] = None
+    page_number: Optional[int] = None
+    page_context: Optional[str] = None
+    total_pages: Optional[int] = None
     
     def __post_init__(self):
         if self.metadata is None:
@@ -77,12 +81,13 @@ class RetrievalResult:
 
 
 class AdvancedChunker:
-    """Advanced document chunking with multiple strategies."""
+    """Advanced document chunking with multiple strategies and page tracking."""
     
     def __init__(self, chunk_size: int = 512, overlap: int = 50, strategy: str = "semantic"):
         self.chunk_size = chunk_size
         self.overlap = overlap
         self.strategy = strategy
+        self.document_text = ""  # Store for page extraction
         
         # Initialize NLP models if available
         self.nlp = None
@@ -93,15 +98,49 @@ class AdvancedChunker:
                 logger.warning("spaCy model 'en_core_web_sm' not found. Using basic chunking.")
     
     def chunk_document(self, text: str, document_metadata: Dict[str, Any] = None) -> List[Chunk]:
-        """Chunk document using specified strategy."""
+        """Chunk document using specified strategy with page information."""
+        self.document_text = text  # Store for page extraction
+        
         if self.strategy == "semantic" and self.nlp:
-            return self._semantic_chunking(text, document_metadata)
+            chunks = self._semantic_chunking(text, document_metadata)
         elif self.strategy == "sliding_window":
-            return self._sliding_window_chunking(text, document_metadata)
+            chunks = self._sliding_window_chunking(text, document_metadata)
         elif self.strategy == "hierarchical":
-            return self._hierarchical_chunking(text, document_metadata)
+            chunks = self._hierarchical_chunking(text, document_metadata)
         else:
-            return self._fixed_size_chunking(text, document_metadata)
+            chunks = self._fixed_size_chunking(text, document_metadata)
+        
+        # Add page information to chunks
+        chunks = self._add_page_info_to_chunks(chunks)
+        return chunks
+    
+    def _add_page_info_to_chunks(self, chunks: List[Chunk]) -> List[Chunk]:
+        """Add page information to all chunks."""
+        if not self.document_text:
+            return chunks
+            
+        # Extract page boundaries
+        document_pages = page_extractor.extract_pages(self.document_text)
+        total_pages = len(document_pages)
+        
+        for chunk in chunks:
+            # Get page information for chunk position
+            page_info = get_page_info(self.document_text, chunk.start_pos, chunk.end_pos)
+            chunk.page_number = page_info.get('page_number')
+            chunk.total_pages = total_pages
+            
+            # Get enhanced page context
+            text_with_pages = extract_text_with_pages(
+                self.document_text, chunk.start_pos, chunk.end_pos, context_chars=100
+            )
+            chunk.page_context = text_with_pages.get('context', '')
+            
+            # Update chunk metadata with page info
+            if chunk.metadata is None:
+                chunk.metadata = {}
+            chunk.metadata.update(page_info)
+        
+        return chunks
     
     def _semantic_chunking(self, text: str, metadata: Dict[str, Any] = None) -> List[Chunk]:
         """Semantic chunking using sentence boundaries and topic shifts."""

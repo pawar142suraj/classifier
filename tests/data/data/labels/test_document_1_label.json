@@ -1,0 +1,13 @@
+{
+  "payment_terms": {
+    "value": "Cash on delivery",
+    "classification": "standard"
+  },
+  "warranty": {
+    "value": "No warranty",
+    "classification": "none"
+  },
+  "customer_name": "Digital Dynamics",
+  "po_number": "PO-2024-003",
+  "total_amount": "25,000"
+}

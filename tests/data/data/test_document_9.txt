@@ -1,0 +1,15 @@
+PURCHASE ORDER #PO-2024-004
+
+From: BetaWorks LLC
+To: StartupXYZ
+
+ORDER DETAILS:
+- Payment Terms: Cash on delivery
+- Warranty Coverage: Limited 1-year warranty
+- Delivery Date: 2024-05-10
+
+BILLING INFORMATION:
+Customer: StartupXYZ
+Billing Address: 789 Innovation St, Silicon Valley
+
+Total Amount: $25,000

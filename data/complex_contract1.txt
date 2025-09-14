@@ -1,0 +1,451 @@
+MASTER SERVICE AGREEMENT
+
+Contract Number: MSA-2024-TECH-7891
+Effective Date: March 15, 2024
+Expiration Date: March 14, 2027
+
+This Master Service Agreement ("Agreement") is entered into as of March 15, 2024 ("Effective Date") by and between TechGlobal Solutions Inc., a Delaware corporation with its principal place of business at 1250 Technology Boulevard, Suite 500, San Francisco, CA 94107 ("Provider" or "TechGlobal"), and Metropolitan Manufacturing Corporation, a New York corporation with its principal place of business at 4500 Industrial Parkway, Buffalo, NY 14225 ("Customer" or "Metropolitan").
+
+RECITALS
+
+WHEREAS, Provider is engaged in the business of providing comprehensive technology solutions, cybersecurity services, cloud infrastructure management, and digital transformation consulting services;
+
+WHEREAS, Customer desires to engage Provider to perform certain technology services as more particularly described herein and in related Statements of Work;
+
+WHEREAS, the parties wish to establish the terms and conditions under which Provider will provide such services to Customer;
+
+NOW, THEREFORE, in consideration of the mutual covenants and agreements contained herein, and for other good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, the parties agree as follows:
+
+ARTICLE 1 - DEFINITIONS
+
+1.1 "Affiliate" means, with respect to any party, any entity that directly or indirectly controls, is controlled by, or is under common control with such party.
+
+1.2 "Confidential Information" means any and all non-public, proprietary, or confidential information disclosed by one party to the other party.
+
+1.3 "Deliverables" means all work product, materials, documentation, software, and other items developed or provided by Provider under this Agreement.
+
+1.4 "Statement of Work" or "SOW" means a written agreement executed by both parties that describes specific services to be performed under this Agreement.
+
+1.5 "Subcontractor" means any third party engaged by Provider to perform any portion of the Services.
+
+ARTICLE 2 - SCOPE OF SERVICES
+
+2.1 Provider Services. Provider shall provide technology consulting, implementation, and support services as detailed in individual Statements of Work executed pursuant to this Agreement ("Services"). Services may include but are not limited to:
+   (a) Cloud infrastructure design and implementation
+   (b) Cybersecurity assessment and monitoring
+   (c) Digital transformation consulting
+   (d) Software development and integration
+   (e) IT support and maintenance services
+   (f) Data analytics and business intelligence solutions
+
+2.2 Statements of Work. Specific Services shall be described in individual Statements of Work that incorporate the terms of this Agreement by reference. Each SOW shall specify:
+   (a) Detailed scope of work and deliverables
+   (b) Timeline and milestones
+   (c) Resource requirements and staffing
+   (d) Pricing and payment terms specific to that SOW
+   (e) Acceptance criteria and testing procedures
+
+2.3 Change Orders. Any changes to an executed SOW must be documented in a written change order signed by authorized representatives of both parties. Change orders shall specify:
+   (a) Description of the change
+   (b) Impact on timeline and deliverables
+   (c) Cost adjustments
+   (d) Resource implications
+
+ARTICLE 3 - PAYMENT TERMS AND CONDITIONS
+
+3.1 Pricing Structure. Pricing for Services shall be established in each SOW and may include:
+   (a) Fixed price for specific deliverables
+   (b) Time and materials at agreed hourly rates
+   (c) Milestone-based payments
+   (d) Subscription or recurring service fees
+
+3.2 Standard Payment Terms. Unless otherwise specified in a SOW, payment terms shall be Net 30 days from receipt of invoice. All invoices must include:
+   (a) Detailed description of services performed
+   (b) Time period covered
+   (c) Breakdown of costs by category
+   (d) Supporting documentation as required
+
+3.3 Bill Rates. The following standard hourly rates apply unless modified in a specific SOW:
+   - Senior Architect: $275/hour
+   - Senior Consultant: $225/hour
+   - Consultant: $175/hour
+   - Junior Consultant: $125/hour
+   - Project Manager: $200/hour
+
+3.4 Expenses. Provider may charge Customer for reasonable out-of-pocket expenses incurred in connection with the Services, provided such expenses are pre-approved by Customer in writing and supported by appropriate documentation.
+
+3.5 Retainage. For projects exceeding $100,000, Customer may withhold five percent (5%) of each payment as retainage until final acceptance of all deliverables and completion of warranty period.
+
+3.6 Labor Escalation. Hourly rates may be increased annually by no more than five percent (5%) or the Consumer Price Index increase, whichever is lower, with sixty (60) days written notice.
+
+ARTICLE 4 - INTELLECTUAL PROPERTY RIGHTS
+
+4.1 Customer IP. Customer retains all right, title, and interest in and to any intellectual property owned by Customer prior to this Agreement or developed independently of the Services.
+
+4.2 Provider IP. Provider retains all right, title, and interest in and to:
+   (a) Any intellectual property owned by Provider prior to this Agreement
+   (b) General methodologies, know-how, and techniques used in providing Services
+   (c) Any improvements or derivatives of Provider's pre-existing intellectual property
+
+4.3 Work Product. Unless otherwise specified in a SOW, Customer shall own all right, title, and interest in and to any work product specifically developed for Customer under this Agreement, subject to Provider's retained rights in its pre-existing intellectual property and general methodologies.
+
+4.4 License Grants. Provider grants Customer a perpetual, irrevocable, non-exclusive license to use any Provider intellectual property that is incorporated into deliverables provided to Customer.
+
+ARTICLE 5 - CONFIDENTIALITY AND NON-DISCLOSURE
+
+5.1 Confidentiality Obligations. Each party acknowledges that it may have access to certain confidential information of the other party. Each party agrees to:
+   (a) Hold all Confidential Information in strict confidence
+   (b) Not disclose Confidential Information to third parties without prior written consent
+   (c) Use Confidential Information solely for purposes of this Agreement
+   (d) Return or destroy Confidential Information upon termination of this Agreement
+
+5.2 Exceptions. Confidentiality obligations shall not apply to information that:
+   (a) Is or becomes publicly available through no breach of this Agreement
+   (b) Was known to the receiving party prior to disclosure
+   (c) Is independently developed without use of Confidential Information
+   (d) Is required to be disclosed by law or court order
+
+5.3 Duration. Confidentiality obligations shall survive termination of this Agreement for a period of five (5) years.
+
+ARTICLE 6 - WARRANTIES AND REPRESENTATIONS
+
+6.1 Mutual Warranties. Each party represents and warrants that:
+   (a) It has the corporate power and authority to enter into this Agreement
+   (b) Execution of this Agreement has been duly authorized
+   (c) This Agreement constitutes a legal, valid, and binding obligation
+
+6.2 Provider Warranties. Provider warrants that:
+   (a) Services will be performed in a professional and workmanlike manner
+   (b) Services will conform to applicable industry standards
+   (c) Deliverables will be free from material defects for ninety (90) days after delivery
+   (d) Provider personnel assigned to perform Services will have appropriate qualifications
+
+6.3 Customer Warranties. Customer warrants that:
+   (a) It will provide timely access to necessary systems and information
+   (b) It will obtain all necessary approvals and authorizations
+   (c) Information provided to Provider will be accurate and complete
+
+6.4 Disclaimer. EXCEPT AS EXPRESSLY SET FORTH HEREIN, PROVIDER MAKES NO OTHER WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+
+ARTICLE 7 - INDEMNIFICATION
+
+7.1 Provider Indemnification. Provider shall defend, indemnify, and hold harmless Customer from and against any third-party claims alleging that the Services or Deliverables infringe any U.S. patent, copyright, or trademark, provided that Customer:
+   (a) Promptly notifies Provider of such claim
+   (b) Grants Provider sole control of defense and settlement
+   (c) Provides reasonable cooperation in defense
+
+7.2 Customer Indemnification. Customer shall defend, indemnify, and hold harmless Provider from and against any claims arising from:
+   (a) Customer's breach of this Agreement
+   (b) Customer's negligent acts or omissions
+   (c) Customer's modification of Deliverables
+   (d) Customer's use of Services in violation of applicable law
+
+7.3 Limitations. Neither party shall be liable for indemnification to the extent claims arise from the indemnified party's negligence or willful misconduct.
+
+ARTICLE 8 - LIMITATION OF LIABILITY
+
+8.1 Consequential Damages. IN NO EVENT SHALL EITHER PARTY BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS, EVEN IF SUCH PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+8.2 Liability Cap. EXCEPT FOR BREACHES OF CONFIDENTIALITY, INDEMNIFICATION OBLIGATIONS, OR WILLFUL MISCONDUCT, EACH PARTY'S TOTAL LIABILITY UNDER THIS AGREEMENT SHALL NOT EXCEED THE GREATER OF (A) $500,000 OR (B) THE TOTAL AMOUNTS PAID OR PAYABLE TO PROVIDER UNDER THIS AGREEMENT IN THE TWELVE (12) MONTHS PRECEDING THE EVENT GIVING RISE TO LIABILITY.
+
+ARTICLE 9 - INSURANCE REQUIREMENTS
+
+9.1 Provider Insurance. Provider shall maintain the following minimum insurance coverage:
+   (a) Commercial General Liability: $2,000,000 per occurrence
+   (b) Professional Liability: $2,000,000 per claim
+   (c) Cyber Liability: $5,000,000 per claim
+   (d) Workers' Compensation: As required by law
+
+9.2 Additional Requirements. Provider's insurance shall:
+   (a) Name Customer as additional insured on general liability policies
+   (b) Include primary and non-contributory coverage
+   (c) Provide thirty (30) days advance notice of cancellation
+   (d) Be placed with insurers rated A- VII or better by A.M. Best
+
+ARTICLE 10 - FEDERAL AND REGULATORY REQUIREMENTS
+
+10.1 Federal Compliance. To the extent applicable, Provider shall comply with all federal requirements including:
+   (a) Federal Acquisition Regulation (FAR) provisions
+   (b) Defense Federal Acquisition Regulation Supplement (DFARS)
+   (c) Export Administration Regulations (EAR)
+   (d) International Traffic in Arms Regulations (ITAR)
+
+10.2 Data Protection. Provider shall comply with all applicable data protection laws including:
+   (a) General Data Protection Regulation (GDPR)
+   (b) California Consumer Privacy Act (CCPA)
+   (c) Health Insurance Portability and Accountability Act (HIPAA)
+   (d) Gramm-Leach-Bliley Act (GLBA)
+
+10.3 Cybersecurity Requirements. Provider shall implement and maintain cybersecurity controls consistent with:
+   (a) NIST Cybersecurity Framework
+   (b) ISO 27001 standards
+   (c) SOC 2 Type II requirements
+   (d) Customer-specific security requirements as detailed in Exhibit A
+
+ARTICLE 11 - SUBCONTRACTORS AND ASSIGNMENT
+
+11.1 Subcontractor Use. Provider may engage subcontractors to perform portions of the Services, provided that:
+   (a) Customer consents to use of subcontractors (not to be unreasonably withheld)
+   (b) Subcontractors agree to be bound by terms equivalent to those in this Agreement
+   (c) Provider remains fully responsible for subcontractor performance
+   (d) All subcontractors meet Customer's security and background check requirements
+
+11.2 Key Personnel. Provider shall assign qualified personnel to perform Services and shall not remove key personnel without Customer's prior written consent and provision of suitable replacement personnel.
+
+11.3 Assignment Restrictions. Neither party may assign this Agreement without the other party's prior written consent, except:
+   (a) Assignment to an Affiliate
+   (b) Assignment in connection with merger, acquisition, or sale of substantially all assets
+   (c) Assignment to successor entity in corporate reorganization
+
+ARTICLE 12 - SITE REQUIREMENTS AND SECURITY
+
+12.1 Background Checks. All Provider personnel requiring access to Customer facilities or systems must pass comprehensive background checks including:
+   (a) Criminal history verification
+   (b) Employment history verification
+   (c) Education verification
+   (d) Reference checks
+
+12.2 Drug Testing. Provider personnel may be subject to pre-assignment and random drug testing as required by Customer's policies and applicable regulations.
+
+12.3 Security Training. All Provider personnel must complete Customer's mandatory security training program before accessing Customer systems or facilities.
+
+12.4 Facility Access. Provider personnel shall comply with all Customer facility access procedures including:
+   (a) Badge requirements and escort procedures
+   (b) Restricted area access limitations
+   (c) Equipment and material handling protocols
+   (d) Emergency and safety procedures
+
+ARTICLE 13 - LIQUIDATED DAMAGES
+
+13.1 Service Level Defaults. In the event Provider fails to meet specified service levels in a SOW, Customer may assess liquidated damages as follows:
+   (a) Minor service level breach (90-95% of target): 2% of monthly service fees
+   (b) Moderate service level breach (80-89% of target): 5% of monthly service fees
+   (c) Material service level breach (below 80% of target): 10% of monthly service fees
+
+13.2 Delivery Delays. For each day that critical deliverables are delayed beyond agreed deadlines:
+   (a) Days 1-5: $1,000 per day
+   (b) Days 6-15: $2,500 per day
+   (c) Days 16+: $5,000 per day
+
+13.3 Liquidated Damages Cap. Total liquidated damages under any SOW shall not exceed 25% of the total value of that SOW.
+
+ARTICLE 14 - TERMINATION
+
+14.1 Termination for Convenience. Either party may terminate this Agreement or any SOW for convenience with sixty (60) days written notice.
+
+14.2 Termination for Cause. Either party may terminate this Agreement immediately upon written notice if the other party:
+   (a) Materially breaches this Agreement and fails to cure within thirty (30) days
+   (b) Becomes insolvent or files for bankruptcy
+   (c) Ceases to conduct business in the ordinary course
+
+14.3 Suspension Rights. Customer may suspend performance under this Agreement if:
+   (a) Provider fails to meet critical security requirements
+   (b) Provider personnel fail background checks or security clearances
+   (c) Regulatory or legal requirements prevent continued performance
+
+14.4 Effect of Termination. Upon termination:
+   (a) Each party shall return or destroy Confidential Information
+   (b) Provider shall deliver all completed work product
+   (c) Customer shall pay for Services satisfactorily performed
+   (d) Accrued rights and obligations shall survive
+
+ARTICLE 15 - PREVAILING WAGES AND LABOR COMPLIANCE
+
+15.1 Prevailing Wage Requirements. For work performed on projects subject to prevailing wage laws, Provider shall:
+   (a) Pay all workers prevailing wages as determined by applicable authorities
+   (b) Maintain certified payroll records
+   (c) Post required wage determination notices
+   (d) Comply with all applicable labor standards
+
+15.2 Equal Employment Opportunity. Provider shall comply with all applicable equal employment opportunity requirements and maintain appropriate policies and procedures.
+
+ARTICLE 16 - SMALL BUSINESS REPORTING
+
+16.1 Small Business Participation. Provider shall make good faith efforts to utilize small business subcontractors and suppliers, including:
+   (a) Small disadvantaged businesses
+   (b) Women-owned small businesses
+   (c) Veteran-owned small businesses
+   (d) Service-disabled veteran-owned small businesses
+
+16.2 Reporting Requirements. Provider shall submit quarterly reports detailing small business participation, including:
+   (a) Dollar amounts paid to small business subcontractors
+   (b) Percentage of total contract value
+   (c) Types of work performed by small businesses
+   (d) Efforts to identify additional small business opportunities
+
+ARTICLE 17 - LICENSING AND CERTIFICATIONS
+
+17.1 Professional Licenses. Provider warrants that all personnel performing Services requiring professional licenses or certifications maintain current, valid credentials appropriate for their assigned responsibilities.
+
+17.2 Industry Certifications. Provider personnel shall maintain relevant industry certifications including:
+   (a) Cloud platform certifications (AWS, Azure, Google Cloud)
+   (b) Cybersecurity certifications (CISSP, CISM, CEH)
+   (c) Project management certifications (PMP, PRINCE2)
+   (d) Technology-specific certifications as required
+
+ARTICLE 18 - INVOICING AND PAYMENT PROCEDURES
+
+18.1 Invoice Requirements. All invoices must include:
+   (a) Detailed time records for time and material work
+   (b) Milestone completion documentation for fixed-price work
+   (c) Expense receipts and supporting documentation
+   (d) Progress reports and deliverable status updates
+
+18.2 Supporting Documentation. Provider shall provide the following supporting documentation with invoices:
+   (a) Detailed timesheets signed by project manager
+   (b) Expense reports with original receipts
+   (c) Deliverable acceptance confirmations
+   (d) Service level achievement reports
+
+18.3 Electronic Invoice Submission. All invoices must be submitted through Customer's electronic procurement portal, including:
+   (a) PDF invoice copies
+   (b) Electronic timesheet data
+   (c) Digital expense documentation
+   (d) Electronic signature confirmations
+
+18.4 Invoice Processing Procedures. Customer will process invoices according to the following timeline:
+   (a) Initial review and validation: 5 business days
+   (b) Approval workflow: 10 business days
+   (c) Payment processing: 15 business days
+   (d) Total processing time: 30 days maximum
+
+ARTICLE 19 - SHIPPING AND DELIVERY TERMS
+
+19.1 Hardware Delivery. For any hardware components provided under this Agreement:
+   (a) Delivery shall be FOB destination
+   (b) Provider shall arrange and pay for shipping and insurance
+   (c) Customer shall inspect deliveries within 5 business days
+   (d) Provider shall provide tracking information for all shipments
+
+19.2 Software Delivery. Software deliverables shall be provided through:
+   (a) Secure electronic file transfer
+   (b) Cloud-based repository access
+   (c) Physical media delivery when required
+   (d) Installation and configuration services as specified
+
+19.3 Documentation Delivery. All project documentation shall be delivered in both electronic and physical formats, including:
+   (a) Technical specifications and design documents
+   (b) User manuals and training materials
+   (c) Source code and configuration files
+   (d) Test plans and results documentation
+
+ARTICLE 20 - GENERAL PROVISIONS
+
+20.1 Governing Law. This Agreement shall be governed by the laws of the State of New York, without regard to conflict of law principles.
+
+20.2 Dispute Resolution. Any disputes arising under this Agreement shall be resolved through:
+   (a) Initial negotiation between project managers
+   (b) Escalation to executive management
+   (c) Mediation before a mutually agreed mediator
+   (d) Binding arbitration if mediation fails
+
+20.3 Force Majeure. Neither party shall be liable for delays or failures to perform due to causes beyond its reasonable control, including acts of God, war, terrorism, pandemic, or government action.
+
+20.4 Severability. If any provision of this Agreement is deemed invalid or unenforceable, the remainder of the Agreement shall remain in full force and effect.
+
+20.5 Entire Agreement. This Agreement, together with all SOWs and exhibits, constitutes the entire agreement between the parties and supersedes all prior negotiations, representations, or agreements.
+
+20.6 Amendment. This Agreement may only be amended by written agreement signed by authorized representatives of both parties.
+
+20.7 Notices. All notices required under this Agreement shall be in writing and delivered by certified mail, overnight courier, or email to the addresses specified in the signature blocks below.
+
+20.8 Counterparts. This Agreement may be executed in counterparts, including electronic signatures, each of which shall be deemed an original.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first written above.
+
+TECHGLOBAL SOLUTIONS INC.                METROPOLITAN MANUFACTURING CORPORATION
+
+By: /s/ Sarah Johnson                    By: /s/ Michael Chen
+Name: Sarah Johnson                      Name: Michael Chen
+Title: Chief Executive Officer           Title: Chief Procurement Officer
+Date: March 15, 2024                    Date: March 15, 2024
+
+Address:                                 Address:
+1250 Technology Boulevard, Suite 500     4500 Industrial Parkway
+San Francisco, CA 94107                  Buffalo, NY 14225
+Email: contracts@techglobal.com          Email: procurement@metromfg.com
+
+EXHIBIT A - CYBERSECURITY REQUIREMENTS
+
+A.1 Minimum Security Controls
+   (a) Multi-factor authentication for all system access
+   (b) Encryption of data in transit and at rest
+   (c) Network segmentation and access controls
+   (d) Continuous monitoring and logging
+   (e) Regular vulnerability assessments and penetration testing
+   (f) Incident response and business continuity plans
+
+A.2 Compliance Frameworks
+   (a) NIST Cybersecurity Framework implementation
+   (b) ISO 27001 certification maintenance
+   (c) SOC 2 Type II audit compliance
+   (d) CMMC Level 3 certification for defense-related work
+
+A.3 Security Reporting Requirements
+   (a) Monthly security posture reports
+   (b) Quarterly vulnerability assessment results
+   (c) Annual penetration testing reports
+   (d) Immediate notification of security incidents
+
+EXHIBIT B - SERVICE LEVEL AGREEMENTS
+
+B.1 System Availability
+   (a) Cloud infrastructure: 99.9% uptime
+   (b) Critical applications: 99.95% uptime
+   (c) Planned maintenance windows: Maximum 4 hours monthly
+
+B.2 Response Times
+   (a) Critical issues: 2 hours
+   (b) High priority issues: 8 hours
+   (c) Medium priority issues: 24 hours
+   (d) Low priority issues: 72 hours
+
+B.3 Performance Metrics
+   (a) Application response time: < 2 seconds
+   (b) Database query performance: < 500ms
+   (c) Network latency: < 50ms
+   (d) Backup completion: Within 6-hour window
+
+EXHIBIT C - STATEMENT OF WORK TEMPLATE
+
+C.1 Project Overview
+   (a) Project name and description
+   (b) Business objectives and success criteria
+   (c) Scope inclusions and exclusions
+   (d) Dependencies and assumptions
+
+C.2 Deliverables and Timeline
+   (a) Detailed work breakdown structure
+   (b) Milestone schedule with dates
+   (c) Resource allocation plan
+   (d) Risk assessment and mitigation strategies
+
+C.3 Acceptance Criteria
+   (a) Technical acceptance requirements
+   (b) Performance benchmarks
+   (c) Quality assurance procedures
+   (d) User acceptance testing protocols
+
+EXHIBIT D - PRICING SCHEDULE
+
+D.1 Standard Hourly Rates (Effective March 15, 2024)
+   - Executive Consultant: $350/hour
+   - Senior Solutions Architect: $275/hour
+   - Senior Consultant: $225/hour
+   - Consultant: $175/hour
+   - Junior Consultant: $125/hour
+   - Project Manager: $200/hour
+   - Technical Writer: $100/hour
+
+D.2 Volume Discounts
+   (a) 1,000-2,499 hours annually: 5% discount
+   (b) 2,500-4,999 hours annually: 10% discount
+   (c) 5,000+ hours annually: 15% discount
+
+D.3 Travel and Expense Rates
+   (a) Mileage: Current IRS rate
+   (b) Lodging: Actual cost up to $200/night
+   (c) Meals: Actual cost up to $75/day
+   (d) Airfare: Coach class, advance booking required
+
+This Master Service Agreement contains 25 pages and represents a comprehensive technology services agreement with complex terms and conditions covering all aspects of the business relationship.

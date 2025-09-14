@@ -1,0 +1,13 @@
+{
+  "payment_terms": {
+    "value": "Cash on delivery",
+    "classification": "standard"
+  },
+  "warranty": {
+    "value": "Limited 1-year warranty",
+    "classification": "limited"
+  },
+  "customer_name": "StartupXYZ",
+  "po_number": "PO-2024-004",
+  "total_amount": "25,000"
+}

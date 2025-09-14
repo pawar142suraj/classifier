@@ -1,28 +1,376 @@
 {
   "field": {
-    "payment_terms": {
+    "payment_of_terms": {
       "type": "string",
-      "enum": ["monthly", "yearly", "one-time"],
-      "description": "The payment terms for the contract.",
+      "description": "The payment terms and conditions specified in the contract, including timing and methodology.",
+      "enum": [
+        "Standard_0_0_30",
+        "Non_Standard", 
+        "Project_PO_Specific"
+      ],
       "enumDescriptions": {
-        "monthly": "Payment is due every month.",
-        "yearly": "Payment is due once a year.",
-        "one-time": "Payment is made in a single transaction."
+        "Standard_0_0_30": "Standard payment terms with net 30 days payment period.",
+        "Non_Standard": "Non-standard payment terms that deviate from typical industry practices.",
+        "Project_PO_Specific": "Payment terms that are specific to the project or purchase order requirements."
       }
-    
     },
-    "warranty": {
+    "subcontractor_flow_down_terms": {
       "type": "string",
-      "description": "The warranty period for the contract.",
-      "enum": ["standard", "non_standard"],
+      "description": "Whether contract terms flow down to subcontractors and how they are handled.",
+      "enum": [
+        "Yes",
+        "No", 
+        "Not_Included_In_Terms"
+      ],
       "enumDescriptions": {
-        "standard": "Standard warranty is provided for 1 year.",
-        "non_standard": "Non-standard warranty is provided other than 1 year."
+        "Yes": "Contract terms explicitly flow down to subcontractors.",
+        "No": "Contract terms do not flow down to subcontractors.",
+        "Not_Included_In_Terms": "Subcontractor flow-down terms are not addressed in the contract."
+      }
+    },
+    "limitation_of_liability": {
+      "type": "string",
+      "description": "Provisions that limit the liability exposure of parties in the contract.",
+      "enum": [
+        "Standard",
+        "Negotiated_Terms"
+      ],
+      "enumDescriptions": {
+        "Standard": "Standard limitation of liability clauses as per company policy.",
+        "Negotiated_Terms": "Customized limitation of liability terms negotiated for this specific contract."
+      }
+    },
+    "product_discounts": {
+      "type": "string",
+      "description": "Whether product discounts are applicable or included in the contract pricing.",
+      "enum": [
+        "Yes",
+        "No"
+      ],
+      "enumDescriptions": {
+        "Yes": "Product discounts are included or applicable in this contract.",
+        "No": "No product discounts are included or applicable in this contract."
       }
     },
     "customer_name": {
       "type": "string",
-      "description": "The name of the customer for the contract."
+      "description": "The legal name of the customer or client organization entering into the contract."
+    },
+    "lien_waiver": {
+      "type": "string",
+      "description": "Provisions regarding lien waiver rights and requirements in the contract.",
+      "enum": [
+        "Yes",
+        "No",
+        "Not_Included_In_Terms"
+      ],
+      "enumDescriptions": {
+        "Yes": "Lien waiver provisions are included and required.",
+        "No": "Lien waiver provisions are explicitly excluded.",
+        "Not_Included_In_Terms": "Lien waiver provisions are not addressed in the contract terms."
+      }
+    },
+    "liquidated_damages": {
+      "type": "string",
+      "description": "Predetermined damage amounts for specific breaches or delays as specified in the contract.",
+      "enum": [
+        "Yes",
+        "Project_PO_Specific",
+        "Not_Included_In_Terms"
+      ],
+      "enumDescriptions": {
+        "Yes": "Liquidated damages clauses are included with standard terms.",
+        "Project_PO_Specific": "Liquidated damages are specific to this project or purchase order.",
+        "Not_Included_In_Terms": "Liquidated damages provisions are not included in the contract."
+      }
+    },
+    "warranty": {
+      "type": "string",
+      "description": "Warranty terms and coverage provided for products or services under the contract.",
+      "enum": [
+        "Standard",
+        "Negotiated_Terms",
+        "Not_Included_In_Terms"
+      ],
+      "enumDescriptions": {
+        "Standard": "Standard warranty terms as per company policy.",
+        "Negotiated_Terms": "Customized warranty terms negotiated for this specific contract.",
+        "Not_Included_In_Terms": "Warranty provisions are not included in the contract terms."
+      }
+    },
+    "indemnification": {
+      "type": "string",
+      "description": "Indemnification clauses that define liability protection between contracting parties.",
+      "enum": [
+        "Standard",
+        "Negotiated_Terms"
+      ],
+      "enumDescriptions": {
+        "Standard": "Standard indemnification clauses as per company policy.",
+        "Negotiated_Terms": "Customized indemnification terms negotiated for this specific contract."
+      }
+    },
+    "intellectual_properties": {
+      "type": "string",
+      "description": "Intellectual property rights, ownership, and usage terms specified in the contract.",
+      "enum": [
+        "SEL_Standard",
+        "SEL_Markup_Accepted",
+        "Other",
+        "Not_Included_In_Terms"
+      ],
+      "enumDescriptions": {
+        "SEL_Standard": "Standard SEL intellectual property terms apply.",
+        "SEL_Markup_Accepted": "SEL markup intellectual property terms are accepted.",
+        "Other": "Other non-standard intellectual property terms are specified.",
+        "Not_Included_In_Terms": "Intellectual property provisions are not addressed in the contract."
+      }
+    },
+    "insurance": {
+      "type": "string",
+      "description": "Insurance requirements and coverage specifications mandated by the contract.",
+      "enum": [
+        "Standard",
+        "Non_Standard",
+        "Other"
+      ],
+      "enumDescriptions": {
+        "Standard": "Standard insurance requirements as per company policy.",
+        "Non_Standard": "Non-standard insurance requirements specific to this contract.",
+        "Other": "Other specialized insurance arrangements are specified."
+      }
+    },
+    "termination": {
+      "type": "string",
+      "description": "Contract termination clauses and conditions for ending the agreement.",
+      "enum": [
+        "Yes",
+        "No",
+        "Not_Included_In_Terms"
+      ],
+      "enumDescriptions": {
+        "Yes": "Termination clauses are included with specific conditions.",
+        "No": "No termination clauses are included in the contract.",
+        "Not_Included_In_Terms": "Termination provisions are not addressed in the contract."
+      }
+    },
+    "federal_requirements": {
+      "type": "string",
+      "description": "Federal regulatory requirements and compliance obligations specified in the contract.",
+      "enum": [
+        "Yes",
+        "No",
+        "Not_Included_In_Terms"
+      ],
+      "enumDescriptions": {
+        "Yes": "Federal requirements and compliance obligations are included.",
+        "No": "No federal requirements are applicable to this contract.",
+        "Not_Included_In_Terms": "Federal requirements are not addressed in the contract terms."
+      }
+    },
+    "ability_to_assign_contract": {
+      "type": "string",
+      "description": "Provisions regarding the ability to assign or transfer contract rights and obligations.",
+      "enum": [
+        "Yes",
+        "No",
+        "Not_Included_In_Terms"
+      ],
+      "enumDescriptions": {
+        "Yes": "Contract assignment is permitted under specified conditions.",
+        "No": "Contract assignment is prohibited or restricted.",
+        "Not_Included_In_Terms": "Contract assignment provisions are not addressed in the terms."
+      }
+    },
+    "labor_escalation": {
+      "type": "string",
+      "description": "Provisions for labor cost escalation adjustments during the contract period.",
+      "enum": [
+        "Yes",
+        "No",
+        "NA"
+      ],
+      "enumDescriptions": {
+        "Yes": "Labor escalation provisions are included for cost adjustments.",
+        "No": "No labor escalation provisions are included.",
+        "NA": "Labor escalation is not applicable to this type of contract."
+      }
+    },
+    "prevailing_wages": {
+      "type": "string",
+      "description": "Requirements for prevailing wage compliance as mandated by applicable laws.",
+      "enum": [
+        "Yes",
+        "No",
+        "NA"
+      ],
+      "enumDescriptions": {
+        "Yes": "Prevailing wage requirements apply and must be followed.",
+        "No": "Prevailing wage requirements do not apply to this contract.",
+        "NA": "Prevailing wages are not applicable to this type of work."
+      }
+    },
+    "bill_rates_included": {
+      "type": "string",
+      "description": "Whether specific billing rates are included and detailed in the contract.",
+      "enum": [
+        "Yes",
+        "No"
+      ],
+      "enumDescriptions": {
+        "Yes": "Specific billing rates are included and detailed in the contract.",
+        "No": "Billing rates are not specified or included in the contract."
+      }
+    },
+    "additional_invoice_instructions": {
+      "type": "array",
+      "description": "Additional requirements and instructions for invoice processing and submission.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Supporting_Documentation",
+          "Submittal_Requirements",
+          "Retainage",
+          "Portal",
+          "Not_Included_In_Terms"
+        ]
+      },
+      "enumDescriptions": {
+        "Supporting_Documentation": "Supporting documentation must be provided with invoices.",
+        "Submittal_Requirements": "Specific submittal requirements must be met for invoicing.",
+        "Retainage": "Retainage provisions apply to invoice processing.",
+        "Portal": "Invoices must be submitted through a specific portal system.",
+        "Not_Included_In_Terms": "No additional invoice instructions are specified."
+      }
+    },
+    "nda": {
+      "type": "string",
+      "description": "Non-disclosure agreement provisions and confidentiality requirements.",
+      "enum": [
+        "Yes",
+        "No"
+      ],
+      "enumDescriptions": {
+        "Yes": "Non-disclosure agreement provisions are included in the contract.",
+        "No": "No non-disclosure agreement provisions are included."
+      }
+    },
+    "site_requirements": {
+      "type": "array",
+      "description": "Specific site access and personnel requirements for work performance.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Background_Check",
+          "Drug_Testing",
+          "CyberSecurity_Requirements",
+          "Safety_Training",
+          "Not_Included_In_Terms"
+        ]
+      },
+      "enumDescriptions": {
+        "Background_Check": "Background checks are required for site access.",
+        "Drug_Testing": "Drug testing is required for personnel working on site.",
+        "CyberSecurity_Requirements": "Specific cybersecurity requirements must be met.",
+        "Safety_Training": "Safety training is mandatory for site personnel.",
+        "Not_Included_In_Terms": "No specific site requirements are included in the terms."
+      }
+    },
+    "change_order_process": {
+      "type": "string",
+      "description": "Defined process and procedures for handling contract changes and modifications.",
+      "enum": [
+        "Yes",
+        "No",
+        "Not_Included_In_Terms"
+      ],
+      "enumDescriptions": {
+        "Yes": "A defined change order process is included in the contract.",
+        "No": "No change order process is specified in the contract.",
+        "Not_Included_In_Terms": "Change order processes are not addressed in the contract terms."
+      }
+    },
+    "shipping_terms": {
+      "type": "string",
+      "description": "Shipping and delivery terms, responsibilities, and requirements specified in the contract.",
+      "enum": [
+        "Yes",
+        "No",
+        "Specific_Requirements",
+        "Not_Included_In_Terms"
+      ],
+      "enumDescriptions": {
+        "Yes": "Standard shipping terms are included in the contract.",
+        "No": "No specific shipping terms are included.",
+        "Specific_Requirements": "Specific shipping requirements are detailed in the contract.",
+        "Not_Included_In_Terms": "Shipping terms are not addressed in the contract."
+      }
+    },
+    "deliverable_requirements": {
+      "type": "string",
+      "description": "Specific requirements and specifications for contract deliverables and outcomes.",
+      "enum": [
+        "Yes",
+        "No",
+        "Not_Included_In_Terms"
+      ],
+      "enumDescriptions": {
+        "Yes": "Specific deliverable requirements are detailed in the contract.",
+        "No": "No specific deliverable requirements are specified.",
+        "Not_Included_In_Terms": "Deliverable requirements are not addressed in the contract terms."
+      }
+    },
+    "small_business_reporting_requirements": {
+      "type": "string",
+      "description": "Requirements for small business participation reporting and compliance.",
+      "enum": [
+        "Yes",
+        "No",
+        "NA"
+      ],
+      "enumDescriptions": {
+        "Yes": "Small business reporting requirements are included and must be followed.",
+        "No": "No small business reporting requirements are specified.",
+        "NA": "Small business reporting requirements are not applicable to this contract."
+      }
+    },
+    "licensing": {
+      "type": "string",
+      "description": "Professional licensing requirements and compliance obligations for contract performance.",
+      "enum": [
+        "Yes",
+        "No",
+        "NA"
+      ],
+      "enumDescriptions": {
+        "Yes": "Specific licensing requirements are mandated for contract performance.",
+        "No": "No licensing requirements are specified in the contract.",
+        "NA": "Licensing requirements are not applicable to this type of work."
+      }
+    },
+    "suspension": {
+      "type": "string",
+      "description": "Contract suspension clauses and conditions for temporary work stoppage.",
+      "enum": [
+        "Yes",
+        "No",
+        "NA"
+      ],
+      "enumDescriptions": {
+        "Yes": "Contract suspension provisions are included with specific conditions.",
+        "No": "No contract suspension provisions are included.",
+        "NA": "Contract suspension is not applicable to this type of agreement."
+      }
+    },
+    "effective_date": {
+      "type": "string",
+      "description": "The official start date when the contract terms become legally binding and enforceable.",
+      "format": "date"
+    },
+    "expiration_date": {
+      "type": "string", 
+      "description": "The official end date when the contract terms expire and are no longer binding.",
+      "format": "date"
     }
   }
 }

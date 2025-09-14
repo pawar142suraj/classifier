@@ -1,0 +1,13 @@
+{
+  "payment_terms": {
+    "value": "Net 15",
+    "classification": "expedited"
+  },
+  "warranty": {
+    "value": "No warranty",
+    "classification": "none"
+  },
+  "customer_name": "StartupXYZ",
+  "po_number": "PO-2024-004",
+  "total_amount": "8,750"
+}

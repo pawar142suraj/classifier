@@ -7,6 +7,7 @@ This implementation introduces several novel concepts:
 3. Multi-stage verification and auto-repair
 4. Context-aware entity relationship discovery
 5. Iterative refinement with confidence tracking
+6. Page-aware evidence extraction
 """
 
 import json
@@ -28,6 +29,7 @@ from ..utils.graph_utils import (
     GraphRetriever
 )
 from ..utils.graph_db import GraphDatabaseManager
+from ..utils.page_extractor import page_extractor, get_page_info, extract_text_with_pages
 
 logger = logging.getLogger(__name__)
 
@@ -42,6 +44,30 @@ class UncertaintyScore:
 
 
 @dataclass
+class ExtractionEvidence:
+    """Represents evidence supporting an extraction decision."""
+    field_name: str
+    extracted_value: Any
+    evidence_text: str
+    confidence: float
+    reasoning: str
+    source_location: Dict[str, Any]  # start, end positions, page info
+    supporting_entities: List[str]
+    related_clauses: List[str]
+    page_number: Optional[int] = None
+    page_context: Optional[str] = None
+    total_pages: Optional[int] = None
+
+
+@dataclass
+class ExtractionResult:
+    """Enhanced extraction result with evidence tracking."""
+    extracted_data: Dict[str, Any]
+    evidence: Dict[str, ExtractionEvidence]
+    metadata: Dict[str, Any]
+
+
+@dataclass
 class ExtractionState:
     """Tracks the state of extraction through multiple iterations."""
     iteration: int
@@ -50,6 +76,7 @@ class ExtractionState:
     uncertainty_scores: List[UncertaintyScore]
     graph_stats: Dict[str, Any]
     refinement_history: List[str]
+    evidence: Dict[str, ExtractionEvidence]
 
 
 class DynamicUncertaintyEstimator:
@@ -226,7 +253,298 @@ class AdaptiveGraphExpander:
         return high_conf_entities[:10]  # Limit to top 10
 
 
+class EvidenceExtractor:
+    """Extracts evidence and supporting clauses for extraction decisions."""
+    
+    def __init__(self, document_text: str, schema: Dict[str, Any]):
+        self.document_text = document_text
+        self.schema = schema
+        self.clause_patterns = self._build_clause_patterns()
+    
+    def _build_clause_patterns(self) -> Dict[str, List[str]]:
+        """Build patterns to identify relevant clauses for each field."""
+        patterns = {}
+        
+        if "field" in self.schema:
+            for field_name, field_def in self.schema["field"].items():
+                field_patterns = []
+                
+                # Add field-specific patterns
+                if field_name == "payment_terms":
+                    field_patterns.extend([
+                        r"payment\s+terms?:?\s*([^.]+)",
+                        r"payments?\s+are\s+due\s+([^.]+)",
+                        r"billing\s+frequency:?\s*([^.]+)",
+                        r"payment\s+schedule:?\s*([^.]+)",
+                        r"invoicing:?\s*([^.]+)"
+                    ])
+                
+                elif field_name == "warranty":
+                    field_patterns.extend([
+                        r"warranty\s+(?:information|period|terms?):?\s*([^.]+)",
+                        r"(?:standard|non-standard)\s+warranty\s+([^.]+)",
+                        r"warranty\s+is\s+provided\s+([^.]+)",
+                        r"guarantee:?\s*([^.]+)"
+                    ])
+                
+                elif field_name == "customer_name":
+                    field_patterns.extend([
+                        r"customer[\"\']*:?\s*([^\"\',.()]+)",
+                        r"between\s+[^\"\']+[\"\']\s*and\s+([^\"\',.()]+)",
+                        r"entered\s+into\s+.*?and\s+([^\"\',.()]+)",
+                        r"client:?\s*([^\"\',.()]+)"
+                    ])
+                
+                # Add enum-specific patterns
+                if "enum" in field_def:
+                    for enum_val in field_def["enum"]:
+                        field_patterns.append(rf"\b{re.escape(enum_val)}\b")
+                
+                patterns[field_name] = field_patterns
+        
+        return patterns
+    
+    def extract_evidence_for_field(self, field_name: str, extracted_value: Any, 
+                                  supporting_entities: List[Entity]) -> ExtractionEvidence:
+        """Extract evidence supporting a field's extraction."""
+        
+        # Find relevant text segments
+        evidence_segments = []
+        source_locations = []
+        related_clauses = []
+        
+        # Use field-specific patterns to find evidence
+        if field_name in self.clause_patterns:
+            for pattern in self.clause_patterns[field_name]:
+                matches = re.finditer(pattern, self.document_text, re.IGNORECASE)
+                for match in matches:
+                    evidence_segments.append(match.group(0))
+                    source_locations.append({
+                        "start": match.start(),
+                        "end": match.end(),
+                        "pattern": pattern
+                    })
+        
+        # Extract evidence from supporting entities
+        entity_evidence = []
+        for entity in supporting_entities:
+            if hasattr(entity, 'properties') and 'start' in entity.properties:
+                # Get surrounding context
+                start = max(0, entity.properties['start'] - 50)
+                end = min(len(self.document_text), entity.properties['end'] + 50)
+                context = self.document_text[start:end]
+                entity_evidence.append(context)
+        
+        # Find complete clauses/sentences containing the evidence
+        related_clauses = self._extract_related_clauses(evidence_segments + entity_evidence)
+        
+        # Build comprehensive evidence text
+        all_evidence = evidence_segments + entity_evidence
+        evidence_text = " | ".join(set(all_evidence)) if all_evidence else "No direct evidence found"
+        
+        # Generate reasoning explanation
+        reasoning = self._generate_reasoning(field_name, extracted_value, evidence_segments, supporting_entities)
+        
+        # Calculate confidence based on evidence quality
+        confidence = self._calculate_evidence_confidence(evidence_segments, supporting_entities, extracted_value)
+        
+        # Extract page information for the primary evidence location
+        page_number = None
+        page_context = None
+        total_pages = None
+        
+        if source_locations:
+            primary_location = source_locations[0]
+            start_pos = primary_location.get("start", 0)
+            end_pos = primary_location.get("end", start_pos)
+            
+            # Get page information
+            page_info = get_page_info(self.document_text, start_pos, end_pos)
+            page_number = page_info.get('page_number')
+            total_pages = page_info.get('total_pages')
+            
+            # Get page context
+            text_with_pages = extract_text_with_pages(self.document_text, start_pos, end_pos, context_chars=150)
+            page_context = text_with_pages.get('context', '')
+            
+            # Enhance source location with page info
+            primary_location.update(page_info)
+        
+        return ExtractionEvidence(
+            field_name=field_name,
+            extracted_value=extracted_value,
+            evidence_text=evidence_text,
+            confidence=confidence,
+            reasoning=reasoning,
+            source_location=source_locations[0] if source_locations else {},
+            supporting_entities=[e.text for e in supporting_entities],
+            related_clauses=related_clauses,
+            page_number=page_number,
+            page_context=page_context,
+            total_pages=total_pages
+        )
+    
+    def _extract_related_clauses(self, evidence_segments: List[str]) -> List[str]:
+        """Extract complete clauses/sentences containing the evidence."""
+        clauses = []
+        
+        # Split document into sentences/clauses
+        sentences = re.split(r'[.!?]+', self.document_text)
+        
+        for evidence in evidence_segments:
+            evidence_clean = evidence.strip().lower()
+            for sentence in sentences:
+                sentence_clean = sentence.strip().lower()
+                if evidence_clean in sentence_clean and len(sentence.strip()) > 10:
+                    clauses.append(sentence.strip())
+        
+        return list(set(clauses))
+    
+    def _generate_reasoning(self, field_name: str, extracted_value: Any, 
+                          evidence_segments: List[str], supporting_entities: List[Entity]) -> str:
+        """Generate human-readable reasoning for the extraction decision."""
+        
+        reasoning_parts = []
+        
+        # Field-specific reasoning
+        if field_name == "payment_terms":
+            if "monthly" in str(extracted_value).lower():
+                reasoning_parts.append("Found 'monthly' payment pattern in contract text")
+            elif "yearly" in str(extracted_value).lower():
+                reasoning_parts.append("Found 'yearly' payment pattern in contract text")
+            elif "one-time" in str(extracted_value).lower():
+                reasoning_parts.append("Found 'one-time' payment pattern in contract text")
+        
+        elif field_name == "warranty":
+            if "standard" in str(extracted_value).lower():
+                reasoning_parts.append("Contract specifies standard warranty terms")
+            elif "non_standard" in str(extracted_value).lower():
+                reasoning_parts.append("Contract indicates non-standard warranty provisions")
+        
+        elif field_name == "customer_name":
+            reasoning_parts.append(f"Identified '{extracted_value}' as customer name from contract parties")
+        
+        # Evidence-based reasoning
+        if evidence_segments:
+            reasoning_parts.append(f"Based on {len(evidence_segments)} evidence segments found in document")
+        
+        if supporting_entities:
+            reasoning_parts.append(f"Supported by {len(supporting_entities)} related entities in knowledge graph")
+        
+        return "; ".join(reasoning_parts) if reasoning_parts else "Extracted based on document analysis"
+    
+    def _calculate_evidence_confidence(self, evidence_segments: List[str], 
+                                     supporting_entities: List[Entity], extracted_value: Any) -> float:
+        """Calculate confidence score based on evidence quality."""
+        confidence = 0.5  # Base confidence
+        
+        # Evidence segment bonus
+        if evidence_segments:
+            confidence += min(0.3, len(evidence_segments) * 0.1)
+        
+        # Supporting entities bonus
+        if supporting_entities:
+            avg_entity_confidence = sum(e.confidence for e in supporting_entities) / len(supporting_entities)
+            confidence += avg_entity_confidence * 0.2
+        
+        # Value quality bonus
+        if extracted_value and str(extracted_value).strip():
+            confidence += 0.1
+        
+        return min(confidence, 0.95)
+
+
 class DynamicGraphRAGExtractor(BaseExtractor):
+    """Dynamic Graph RAG extractor with adaptive refinement and evidence tracking."""
+    
+    def __init__(self, llm, schema: Dict[str, Any], config: Dict[str, Any] = None):
+        super().__init__(llm, schema, config)
+        self.uncertainty_estimator = DynamicUncertaintyEstimator()
+        self.graph_expander = AdaptiveGraphExpander(llm)
+        self.graph_db = GraphDatabaseManager()
+        self.evidence_extractor = None
+        
+        # Configuration
+        self.max_iterations = config.get('max_iterations', 3) if config else 3
+        self.confidence_threshold = config.get('confidence_threshold', 0.8) if config else 0.8
+        self.expansion_threshold = config.get('expansion_threshold', 0.6) if config else 0.6
+        
+        # Field mapping and auto-repair
+        self.field_mappings = self._build_field_mappings()
+        self.auto_repair = config.get('auto_repair', True) if config else True
+        
+        logger.info("Initialized DynamicGraphRAGExtractor with novel adaptive capabilities and evidence tracking")
+    
+    def extract(self, document_text: str) -> ExtractionResult:
+        """
+        Extract information using dynamic Graph RAG with evidence tracking.
+        
+        Returns:
+            ExtractionResult: Complete extraction result with evidence
+        """
+        # Initialize evidence extractor
+        self.evidence_extractor = EvidenceExtractor(document_text, self.schema)
+        
+        logger.info("Starting Dynamic Graph RAG extraction with evidence tracking")
+        
+        # Initial extraction and graph construction
+        initial_state = self._initial_extraction(document_text)
+        
+        # Initialize current state
+        current_state = initial_state
+        iteration = 0
+        
+        # Iterative refinement process
+        while iteration < self.max_iterations:
+            iteration += 1
+            logger.info(f"Starting iteration {iteration}")
+            
+            # Assess uncertainty and identify areas for improvement
+            uncertainty_analysis = self._assess_extraction_uncertainty(current_state)
+            
+            # Check if we've reached satisfactory confidence
+            if self._is_extraction_satisfactory(uncertainty_analysis):
+                logger.info(f"Extraction converged after {iteration-1} iterations")
+                break
+            
+            # Expand knowledge graph for uncertain areas
+            expanded_state = self._expand_knowledge_graph(current_state, uncertainty_analysis)
+            
+            # Refine extraction based on expanded graph
+            refined_state = self._refine_extraction(expanded_state, uncertainty_analysis)
+            
+            current_state = refined_state
+        
+        # Store final graph in database
+        self._store_graph(current_state.knowledge_graph, document_text)
+        
+        # Prepare final result with evidence
+        final_extraction = current_state.extracted_fields
+        
+        # Generate evidence for each extracted field
+        evidence_list = []
+        for field_name, value in final_extraction.items():
+            # Find supporting entities for this field
+            supporting_entities = self._find_supporting_entities(field_name, current_state.knowledge_graph)
+            
+            # Extract evidence
+            evidence = self.evidence_extractor.extract_evidence_for_field(
+                field_name, value, supporting_entities
+            )
+            evidence_list.append(evidence)
+        
+        # Calculate overall confidence
+        overall_confidence = self._calculate_overall_confidence(evidence_list)
+        
+        logger.info(f"Dynamic Graph RAG extraction completed. Confidence: {overall_confidence:.2f}")
+        
+        return ExtractionResult(
+            extracted_fields=final_extraction,
+            overall_confidence=overall_confidence,
+            evidence=evidence_list,
+            graph_size=len(current_state.knowledge_graph.entities),
+            iterations_used=iteration
+        )
     """
     Novel Dynamic Graph RAG extraction method with:
     - Uncertainty-based adaptive graph expansion

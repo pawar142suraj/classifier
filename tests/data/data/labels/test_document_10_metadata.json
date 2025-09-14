@@ -1,0 +1,13 @@
+{
+  "template_type": "consulting_agreement",
+  "generated": true,
+  "variables": {
+    "company_a": "GlobalTech Solutions",
+    "customer_name": "Global Industries",
+    "customer_address": "654 Industrial Pkwy, Manufacturing Zone",
+    "payment_terms": "Payment upon completion",
+    "warranty": "Work guaranteed for 90 days",
+    "project_duration": "6 months",
+    "agreement_date": "2024-03-10"
+  }
+}

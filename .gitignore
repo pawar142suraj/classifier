@@ -166,7 +166,7 @@ cython_debug/
 !.vscode/tasks.json
 
 # Data and results
-data/
+# data/
 results/
 experiments/*/
 temp_*

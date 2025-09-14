@@ -1,0 +1,20 @@
+{
+  "name": "DocuVerse Evaluation Dataset",
+  "description": "Synthetic dataset for evaluating extraction methods",
+  "document_count": 10,
+  "templates_used": [
+    "service_agreement",
+    "consulting_agreement",
+    "purchase_order"
+  ],
+  "generated_timestamp": "2024-01-15T10:00:00Z",
+  "schema_fields": [
+    "payment_terms",
+    "warranty",
+    "customer_name",
+    "po_number",
+    "total_amount",
+    "project_duration",
+    "agreement_date"
+  ]
+}

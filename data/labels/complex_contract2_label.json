@@ -1,0 +1,404 @@
+{
+  "contract_analysis": {
+    "contract_type": "Construction Services Agreement - Design-Build",
+    "complexity_level": "Very High",
+    "page_count": 28,
+    "exhibits_count": 10,
+    "parties": {
+      "contractor": "Apex Construction Group LLC",
+      "owner": "Sterling Development Corporation"
+    },
+    "project_details": {
+      "project_name": "Metropolitan Industrial Complex - Phase III Expansion",
+      "project_size": "450,000 SF manufacturing facility",
+      "contract_value": "$47,500,000",
+      "project_type": "Design-Build Construction"
+    }
+  },
+  "extracted_fields": {
+    "payment_of_terms": {
+      "classification": "Project_PO_Specific",
+      "extracted_content": "Owner shall pay Contractor according to milestone schedule: Contract execution: $2,375,000 (5%); Site preparation completion: $4,750,000 (10%); Foundation completion: $7,125,000 (15%); Structural completion: $14,250,000 (30%); Mechanical rough-in completion: $9,500,000 (20%); Substantial completion: $7,125,000 (15%); Final completion: $2,375,000 (5%)",
+      "confidence": 0.96,
+      "source_section": "Article II - Contract Price and Payment Terms, Section 2.2",
+      "supporting_evidence": [
+        "Project-specific milestone-based payment schedule",
+        "Seven distinct payment milestones tied to construction phases",
+        "Detailed percentage and dollar amount breakdown",
+        "Construction-specific payment structure"
+      ]
+    },
+    "subcontractor_flow_down_terms": {
+      "classification": "Yes",
+      "extracted_content": "All subcontractors shall be bound by terms equivalent to those binding Contractor, including: Safety requirements; Quality standards; Schedule requirements; Insurance and bonding obligations",
+      "confidence": 0.94,
+      "source_section": "Article VII - Subcontractors and Labor, Section 7.2",
+      "supporting_evidence": [
+        "Explicit flow-down requirement for equivalent terms",
+        "Comprehensive coverage of safety, quality, schedule, and financial obligations",
+        "All subcontractors must be approved by Owner",
+        "Subcontractor qualifications and certifications required"
+      ]
+    },
+    "limitation_of_liability": {
+      "classification": "Negotiated_Terms",
+      "extracted_content": "Total liquidated damages shall not exceed 10% of the contract price. Contractor shall defend, indemnify, and hold harmless Owner from claims arising from Contractor's performance, negligent acts, bodily injury or property damage on site, violations of laws or regulations",
+      "confidence": 0.91,
+      "source_section": "Article IV.3 - Damage Limitations and Article XI - Indemnification",
+      "supporting_evidence": [
+        "Specific 10% cap on liquidated damages",
+        "Comprehensive indemnification structure",
+        "Professional liability and environmental indemnification",
+        "Negotiated limitation tied to contract performance"
+      ]
+    },
+    "product_discounts": {
+      "classification": "No",
+      "extracted_content": "No product discounts mentioned in contract terms. Contract price is fixed at $47,500,000 with detailed breakdown by construction phases",
+      "confidence": 0.88,
+      "source_section": "Article II - Contract Price and Payment Terms",
+      "supporting_evidence": [
+        "Fixed price contract structure",
+        "No mention of product discounts or pricing reductions",
+        "Price adjustments only through formal change orders",
+        "Construction focus rather than product sales"
+      ]
+    },
+    "customer_name": {
+      "classification": "Sterling Development Corporation",
+      "extracted_content": "Sterling Development Corporation, a Texas corporation with principal offices at 2100 Commerce Street, Dallas, TX 75201",
+      "confidence": 0.98,
+      "source_section": "Contract Header and Signature Block",
+      "supporting_evidence": [
+        "Legal entity name clearly identified as Owner",
+        "Corporate status and jurisdiction specified",
+        "Principal office address provided",
+        "Signature block confirmation by Senior Vice President"
+      ]
+    },
+    "lien_waiver": {
+      "classification": "Yes",
+      "extracted_content": "Contractor shall provide conditional and unconditional lien waivers with each payment request",
+      "confidence": 0.95,
+      "source_section": "Article XVII.3 - Lien Waiver",
+      "supporting_evidence": [
+        "Explicit lien waiver requirement",
+        "Both conditional and unconditional waivers required",
+        "Tied to payment request process",
+        "Standard construction industry practice"
+      ]
+    },
+    "liquidated_damages": {
+      "classification": "Yes",
+      "extracted_content": "If substantial completion is not achieved by contract date, Contractor shall pay Owner liquidated damages of $10,000 per calendar day of delay. Additional liquidated damages: Failure to meet environmental compliance: $5,000 per day; Safety violations: $2,500 per incident; Quality deficiencies: $1,000 per day until corrected",
+      "confidence": 0.97,
+      "source_section": "Article IV - Liquidated Damages",
+      "supporting_evidence": [
+        "Daily delay damages of $10,000 per day",
+        "Specific environmental compliance penalties",
+        "Safety violation incident penalties",
+        "Quality deficiency correction penalties",
+        "10% total contract price cap on damages"
+      ]
+    },
+    "warranty": {
+      "classification": "Negotiated_Terms",
+      "extracted_content": "Contractor warrants all work against defects in materials and workmanship for two (2) years. Mechanical, electrical, and plumbing systems warranted for five (5) years. Roofing systems carry ten (10) year warranty. Structural elements warranted for ten (10) years",
+      "confidence": 0.93,
+      "source_section": "Article V - Warranty Provisions",
+      "supporting_evidence": [
+        "Tiered warranty structure with different terms for different systems",
+        "Extended warranties beyond standard (2-10 years)",
+        "System-specific warranty periods",
+        "Comprehensive warranty coverage including structure, systems, and roofing"
+      ]
+    },
+    "indemnification": {
+      "classification": "Negotiated_Terms",
+      "extracted_content": "Contractor shall defend, indemnify, and hold harmless Owner from claims arising from Contractor's performance, negligent acts, bodily injury, property damage, and violations of laws. Professional liability indemnification for design-related claims. Environmental indemnification for Contractor's activities and improper handling of hazardous materials",
+      "confidence": 0.92,
+      "source_section": "Article XI - Indemnification",
+      "supporting_evidence": [
+        "Comprehensive three-part indemnification structure",
+        "General performance and negligence indemnification",
+        "Professional liability for design-build services",
+        "Environmental indemnification for site activities",
+        "Broad scope covering multiple risk categories"
+      ]
+    },
+    "intellectual_properties": {
+      "classification": "Other",
+      "extracted_content": "Owner shall own all design documents, plans, and specifications developed for the Project. Contractor retains rights to proprietary construction methods and techniques. Contractor shall provide complete as-built drawings and documentation to Owner",
+      "confidence": 0.89,
+      "source_section": "Article XII - Intellectual Property",
+      "supporting_evidence": [
+        "Owner ownership of project-specific design documents",
+        "Contractor retention of proprietary methods",
+        "As-built documentation transfer to Owner",
+        "Balanced IP allocation for design-build structure"
+      ]
+    },
+    "insurance": {
+      "classification": "Non_Standard",
+      "extracted_content": "Commercial General Liability: $5,000,000 per occurrence; Automobile Liability: $2,000,000 per occurrence; Professional Liability: $3,000,000 per claim; Builder's Risk: Full replacement cost; Environmental Liability: $10,000,000 per claim",
+      "confidence": 0.94,
+      "source_section": "Article VI - Insurance and Bonding",
+      "supporting_evidence": [
+        "Very high insurance limits exceeding standard requirements",
+        "Environmental liability coverage at $10M",
+        "Builder's risk at full replacement cost",
+        "Additional insured and primary/non-contributory requirements",
+        "A.M. Best A-rated insurer requirements"
+      ]
+    },
+    "termination": {
+      "classification": "Yes",
+      "extracted_content": "Owner may terminate for convenience with 30 days written notice. Either party may terminate for default if the other party materially breaches, becomes insolvent, fails to make payments, or abandons work. Upon Contractor default, Owner may complete work with other contractors and use performance bond proceeds",
+      "confidence": 0.95,
+      "source_section": "Article XIV - Termination",
+      "supporting_evidence": [
+        "Termination for convenience with 30-day notice",
+        "Termination for default with specific triggers",
+        "Detailed remedies upon default",
+        "Performance bond utilization provisions",
+        "Compensation for satisfactory work performed"
+      ]
+    },
+    "federal_requirements": {
+      "classification": "Yes",
+      "extracted_content": "Project is subject to federal requirements including: Davis-Bacon prevailing wage requirements; Equal Employment Opportunity provisions; Buy American Act requirements for steel and iron; Federal acquisition regulations for materials",
+      "confidence": 0.93,
+      "source_section": "Article VIII.4 - Federal Requirements",
+      "supporting_evidence": [
+        "Davis-Bacon Act compliance for prevailing wages",
+        "Equal Employment Opportunity requirements",
+        "Buy American Act for steel and iron materials",
+        "Federal acquisition regulation compliance",
+        "Multiple federal compliance obligations"
+      ]
+    },
+    "ability_to_assign_contract": {
+      "classification": "No",
+      "extracted_content": "This Agreement may not be assigned without written consent of both parties",
+      "confidence": 0.92,
+      "source_section": "Article XVII.1 - Assignment",
+      "supporting_evidence": [
+        "Clear prohibition on assignment without consent",
+        "Both parties must provide written consent",
+        "No exceptions provided for affiliates or M&A",
+        "Absolute restriction on assignment"
+      ]
+    },
+    "labor_escalation": {
+      "classification": "NA",
+      "extracted_content": "Fixed price contract with no labor escalation provisions. Contract price is $47,500,000 with changes only through written change orders",
+      "confidence": 0.87,
+      "source_section": "Article II - Contract Price and Payment Terms",
+      "supporting_evidence": [
+        "Fixed price contract structure",
+        "No escalation clauses for labor costs",
+        "Price changes only through change orders",
+        "Construction contract with defined completion timeline"
+      ]
+    },
+    "prevailing_wages": {
+      "classification": "Yes",
+      "extracted_content": "This project is subject to Texas prevailing wage requirements. Contractor shall: Pay prevailing wages to all workers; Maintain certified payroll records; Post wage determinations; Submit weekly payroll certifications. Contractor shall comply with Davis-Bacon Act requirements",
+      "confidence": 0.96,
+      "source_section": "Article VII.3 - Prevailing Wages and Article VIII.4",
+      "supporting_evidence": [
+        "Texas prevailing wage requirements apply",
+        "Davis-Bacon Act compliance required",
+        "Certified payroll record maintenance",
+        "Weekly payroll certification submissions",
+        "Wage determination posting requirements"
+      ]
+    },
+    "bill_rates_included": {
+      "classification": "No",
+      "extracted_content": "Fixed price contract of $47,500,000 with milestone payments. No hourly billing rates specified as contract is not time and materials based",
+      "confidence": 0.90,
+      "source_section": "Article II - Contract Price and Payment Terms",
+      "supporting_evidence": [
+        "Fixed price contract structure",
+        "Milestone-based payment schedule",
+        "No hourly rates or time-based billing",
+        "Lump sum construction contract"
+      ]
+    },
+    "additional_invoice_instructions": {
+      "classification": ["Supporting_Documentation", "Retainage"],
+      "extracted_content": "Monthly progress payments based on work completed, less ten percent (10%) retainage on all payments. Contractor shall provide conditional and unconditional lien waivers with each payment request. Detailed records required including daily reports, material receipts, payroll records",
+      "confidence": 0.93,
+      "source_section": "Article II.3 - Progress Payments and Article XVII.4",
+      "supporting_evidence": [
+        "10% retainage on all progress payments",
+        "Lien waiver requirements with payment requests",
+        "Detailed record keeping requirements",
+        "Daily reports and material certification requirements"
+      ]
+    },
+    "nda": {
+      "classification": "No",
+      "extracted_content": "No specific non-disclosure agreement provisions found in construction contract terms",
+      "confidence": 0.85,
+      "source_section": "Full Contract Review",
+      "supporting_evidence": [
+        "Comprehensive review of all articles and exhibits",
+        "No confidentiality or NDA provisions identified",
+        "Construction contract focus on performance and delivery",
+        "Standard construction agreement without confidentiality requirements"
+      ]
+    },
+    "site_requirements": {
+      "classification": ["Background_Check", "Drug_Testing", "CyberSecurity_Requirements", "Safety_Training"],
+      "extracted_content": "Site security measures include controlled access with ID badges, background checks for all personnel, 24/7 security monitoring, cybersecurity protocols. All personnel must complete 10-hour OSHA construction safety training, site-specific safety orientation. All site personnel subject to pre-assignment drug testing, random drug testing, post-incident testing",
+      "confidence": 0.95,
+      "source_section": "Article IX - Safety and Security",
+      "supporting_evidence": [
+        "Background checks required for all personnel",
+        "Comprehensive drug testing program",
+        "Cybersecurity protocols for project data",
+        "OSHA safety training requirements",
+        "Site-specific safety orientation mandatory"
+      ]
+    },
+    "change_order_process": {
+      "classification": "Yes",
+      "extracted_content": "Contract price may be adjusted only through written change orders executed by both parties, specifying: Detailed scope of change; Cost impact (addition or credit); Schedule impact; Impact on other work",
+      "confidence": 0.94,
+      "source_section": "Article II.5 - Change Orders",
+      "supporting_evidence": [
+        "Formal written change order requirement",
+        "Both parties must execute change orders",
+        "Comprehensive change impact documentation",
+        "Scope, cost, schedule, and work impact analysis required"
+      ]
+    },
+    "shipping_terms": {
+      "classification": "Specific_Requirements",
+      "extracted_content": "All materials and equipment shall be delivered: FOB job site; With advance notice to Owner; During approved hours (7 AM - 6 PM weekdays); With proper handling and storage procedures. Materials subject to inspection upon delivery and verification against specifications",
+      "confidence": 0.91,
+      "source_section": "Article XVI - Shipping and Delivery",
+      "supporting_evidence": [
+        "FOB job site delivery terms",
+        "Specific delivery hour restrictions",
+        "Advance notice requirements",
+        "Proper handling and storage procedures",
+        "Inspection and verification requirements"
+      ]
+    },
+    "deliverable_requirements": {
+      "classification": "Yes",
+      "extracted_content": "The work shall be performed in accordance with: Drawings and specifications dated March 15, 2024; Technical specifications and performance requirements; Environmental compliance requirements; Safety and security protocols. Contractor shall provide complete as-built drawings and documentation including architectural, structural, mechanical, electrical drawings, and equipment manuals",
+      "confidence": 0.93,
+      "source_section": "Article I.2 - Contract Documents and Article XII.3",
+      "supporting_evidence": [
+        "Detailed contract document requirements",
+        "Technical specifications and performance requirements",
+        "Complete as-built documentation deliverables",
+        "Comprehensive drawing and manual delivery requirements"
+      ]
+    },
+    "small_business_reporting_requirements": {
+      "classification": "Yes",
+      "extracted_content": "Contractor shall make good faith efforts to achieve: 25% participation by small businesses; 5% participation by minority-owned businesses; 5% participation by women-owned businesses; 3% participation by veteran-owned businesses. Monthly reports required documenting dollar amounts, percentages, types of work, and identification efforts",
+      "confidence": 0.94,
+      "source_section": "Article XV - Small Business Participation",
+      "supporting_evidence": [
+        "Specific participation goals for various business categories",
+        "25% overall small business participation target",
+        "Monthly reporting requirements",
+        "Detailed reporting metrics including dollars and percentages",
+        "Good faith effort requirements"
+      ]
+    },
+    "licensing": {
+      "classification": "Yes",
+      "extracted_content": "Contractor represents that it is qualified, experienced, and properly licensed to perform construction services. Contractor shall obtain all necessary permits, licenses, and approvals including building permits, environmental permits, utility approvals, fire department approvals, and occupancy certificates",
+      "confidence": 0.92,
+      "source_section": "Recitals and Article I.3 - Permits and Approvals",
+      "supporting_evidence": [
+        "Contractor licensing representation",
+        "Comprehensive permit and approval requirements",
+        "Multiple licensing categories including building, environmental, utility",
+        "Professional qualification requirements"
+      ]
+    },
+    "suspension": {
+      "classification": "Yes",
+      "extracted_content": "Owner reserves right to inspect all work and may: Reject non-conforming work; Require corrective action; Stop work for safety or quality issues; Engage independent inspectors. Pending dispute resolution, Contractor shall continue performance unless directed otherwise by Owner",
+      "confidence": 0.88,
+      "source_section": "Article X.3 - Owner Inspections and Article XIII.3",
+      "supporting_evidence": [
+        "Owner right to stop work for safety or quality issues",
+        "Work rejection and corrective action authority",
+        "Independent inspector engagement capability",
+        "Continued performance requirements pending disputes"
+      ]
+    },
+    "effective_date": {
+      "classification": "2024-04-01",
+      "extracted_content": "This Construction Services Agreement is entered into on April 1, 2024",
+      "confidence": 0.99,
+      "source_section": "Contract Header",
+      "supporting_evidence": [
+        "Clearly stated contract execution date",
+        "Consistent date references throughout contract",
+        "Signature block date confirmation"
+      ]
+    },
+    "expiration_date": {
+      "classification": "2025-09-30",
+      "extracted_content": "Completion Date: September 30, 2025. Final completion shall occur no later than September 30, 2025",
+      "confidence": 0.97,
+      "source_section": "Contract Header and Article III.3",
+      "supporting_evidence": [
+        "Final completion date specified",
+        "Consistent completion date references",
+        "18-month construction timeline",
+        "Time is of the essence provisions"
+      ]
+    }
+  },
+  "extraction_metadata": {
+    "contract_complexity_indicators": {
+      "articles_count": 17,
+      "exhibits_count": 10,
+      "pages": 28,
+      "word_count": "~18,000",
+      "legal_complexity": "Very High",
+      "technical_complexity": "Very High",
+      "regulatory_complexity": "Very High"
+    },
+    "construction_specific_elements": {
+      "project_value": "$47,500,000",
+      "project_size": "450,000 SF",
+      "project_type": "Design-Build Manufacturing Facility",
+      "performance_bond": "100% of contract price",
+      "payment_bond": "100% of contract price",
+      "warranty_bond": "10% of contract price"
+    },
+    "schema_coverage": {
+      "total_fields": 27,
+      "fields_with_values": 27,
+      "coverage_percentage": 100,
+      "high_confidence_fields": 24,
+      "medium_confidence_fields": 3,
+      "low_confidence_fields": 0
+    },
+    "evidence_quality": {
+      "average_confidence": 0.93,
+      "fields_with_strong_evidence": 25,
+      "fields_with_multiple_sources": 20,
+      "fields_requiring_interpretation": 2
+    },
+    "extraction_challenges": [
+      "Complex multi-tiered warranty structure required interpretation",
+      "Liquidated damages structure spans multiple categories",
+      "Federal requirements comprehensive and overlapping",
+      "Insurance requirements significantly exceed standard levels",
+      "Small business participation goals very detailed and specific"
+    ]
+  }
+}

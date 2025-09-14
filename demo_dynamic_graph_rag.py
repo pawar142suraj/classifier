@@ -99,7 +99,7 @@ def compare_with_static_approach(dynamic_result: dict, metadata: dict):
         print(f"• Converged in first iteration (high initial confidence)")
 
 
-def main():
+def  main():
     """Run Dynamic Graph RAG extraction demo."""
     print("🚀 Dynamic Graph RAG Extractor Demo")
     print("=" * 60)

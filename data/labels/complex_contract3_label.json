@@ -1,0 +1,396 @@
+{
+  "contract_analysis": {
+    "contract_type": "Professional Services Agreement - Legal Services",
+    "complexity_level": "Very High",
+    "page_count": 30,
+    "exhibits_count": 6,
+    "parties": {
+      "service_provider": "Morrison, Clarke & Associates LLP",
+      "client": "Global Energy Solutions Inc."
+    },
+    "service_details": {
+      "service_type": "Comprehensive Legal Services",
+      "practice_areas": "Energy Law, Regulatory Compliance, International Transactions, Corporate Governance",
+      "monthly_retainer": "$150,000",
+      "rate_range": "$250-$1,200 per hour"
+    }
+  },
+  "extracted_fields": {
+    "payment_of_terms": {
+      "classification": "Non_Standard",
+      "extracted_content": "Invoices due within fifteen (15) days of receipt. Late payment interest at 1.5% per month. Client shall pay monthly retainer of $150,000, applied against legal fees incurred during each month. If monthly fees exceed retainer amount, Client shall pay overage within fifteen (15) days",
+      "confidence": 0.94,
+      "source_section": "Article 2.4 - Standard Payment Terms and Article 3 - Retainer and Billing Procedures",
+      "supporting_evidence": [
+        "15-day payment terms instead of standard 30-day",
+        "Monthly retainer structure of $150,000",
+        "Overage payment within 15 days",
+        "Late payment interest at 1.5% monthly rate"
+      ]
+    },
+    "subcontractor_flow_down_terms": {
+      "classification": "Yes",
+      "extracted_content": "Firm may engage local counsel and expert witnesses subject to Client approval, coordination of strategy, flow-down of confidentiality and quality standards. All subconsultants must: Meet professional licensing requirements; Maintain appropriate insurance coverage; Execute confidentiality agreements; Comply with applicable professional standards",
+      "confidence": 0.92,
+      "source_section": "Article 7 - Subcontractors and Co-Counsel",
+      "supporting_evidence": [
+        "Flow-down of confidentiality and quality standards to subcontractors",
+        "Professional licensing requirements for all subconsultants",
+        "Insurance coverage requirements for subcontractors",
+        "Confidentiality agreement execution required"
+      ]
+    },
+    "limitation_of_liability": {
+      "classification": "Negotiated_Terms",
+      "extracted_content": "Firm's liability for professional malpractice shall not exceed the lesser of: Three times the fees paid for the specific matter; $5,000,000 per claim; Available insurance coverage. Firm maintains professional liability insurance of $25,000,000 per claim and $50,000,000 aggregate",
+      "confidence": 0.95,
+      "source_section": "Article 5.3 - Limitation of Liability and Article 5.2",
+      "supporting_evidence": [
+        "Triple fee liability cap or $5M per claim, whichever is less",
+        "Professional liability insurance at $25M/$50M levels",
+        "Insurance coverage limitation provision",
+        "Specific professional malpractice limitation structure"
+      ]
+    },
+    "product_discounts": {
+      "classification": "No",
+      "extracted_content": "No product discounts applicable. Legal services billed at established hourly rates with potential for alternative fee arrangements including fixed fees, contingency fees, and success bonuses for specific matters",
+      "confidence": 0.89,
+      "source_section": "Article 2 - Billing Rates and Payment Terms",
+      "supporting_evidence": [
+        "Professional services contract with hourly billing",
+        "No product sales or discount structures",
+        "Alternative fee arrangements for specific matters only",
+        "Service-based billing rather than product-based"
+      ]
+    },
+    "customer_name": {
+      "classification": "Global Energy Solutions Inc.",
+      "extracted_content": "Global Energy Solutions Inc., a Delaware corporation with headquarters at 1500 Louisiana Street, Houston, TX 77002",
+      "confidence": 0.98,
+      "source_section": "Contract Header and Signature Block",
+      "supporting_evidence": [
+        "Legal entity name clearly identified as Client",
+        "Delaware corporation status specified",
+        "Headquarters address in Houston provided",
+        "General Counsel signature confirmation"
+      ]
+    },
+    "lien_waiver": {
+      "classification": "Not_Included_In_Terms",
+      "extracted_content": "No lien waiver provisions found in professional services agreement. Legal services contract does not include construction or lien-related terms",
+      "confidence": 0.87,
+      "source_section": "Full Contract Review",
+      "supporting_evidence": [
+        "Professional services agreement without construction elements",
+        "No lien waiver provisions in any articles or exhibits",
+        "Legal services focus rather than construction or supply",
+        "Standard professional services contract structure"
+      ]
+    },
+    "liquidated_damages": {
+      "classification": "Not_Included_In_Terms",
+      "extracted_content": "No liquidated damages provisions specified in professional services agreement. Contract focuses on professional performance standards and liability limitations rather than penalty structures",
+      "confidence": 0.85,
+      "source_section": "Full Contract Review",
+      "supporting_evidence": [
+        "No liquidated damages clauses in contract terms",
+        "Professional services agreements typically do not include liquidated damages",
+        "Focus on professional liability and malpractice standards",
+        "Performance measured by professional standards rather than penalties"
+      ]
+    },
+    "warranty": {
+      "classification": "Standard",
+      "extracted_content": "Firm warrants that legal services will be performed in accordance with applicable professional standards and rules of professional conduct",
+      "confidence": 0.88,
+      "source_section": "Article 5.1 - Professional Standards",
+      "supporting_evidence": [
+        "Standard professional performance warranty",
+        "Compliance with professional conduct rules",
+        "Applicable professional standards adherence",
+        "Industry-standard professional service warranty"
+      ]
+    },
+    "indemnification": {
+      "classification": "Negotiated_Terms",
+      "extracted_content": "Client shall indemnify Firm for claims arising from: Client's failure to disclose material facts; Client's illegal or unethical conduct; Client's breach of this Agreement; Third-party claims unrelated to Firm's professional conduct",
+      "confidence": 0.91,
+      "source_section": "Article 5.4 - Client Indemnification",
+      "supporting_evidence": [
+        "Client indemnification of law firm for specific circumstances",
+        "Coverage for client non-disclosure and misconduct",
+        "Protection for third-party claims unrelated to professional conduct",
+        "Negotiated indemnification structure favoring service provider"
+      ]
+    },
+    "intellectual_properties": {
+      "classification": "Other",
+      "extracted_content": "Client owns all work product specifically prepared for Client matters, including legal memoranda, contract drafts, regulatory filings, and case strategies. Firm retains general legal knowledge, forms and precedents not client-specific, legal research methodologies, and general practice development materials",
+      "confidence": 0.93,
+      "source_section": "Article 6 - Intellectual Property and Work Product",
+      "supporting_evidence": [
+        "Client ownership of specific work product",
+        "Firm retention of general legal knowledge and methodologies",
+        "Balanced IP allocation for professional services",
+        "Protection of firm's general practice development materials"
+      ]
+    },
+    "insurance": {
+      "classification": "Non_Standard",
+      "extracted_content": "Professional Liability: $25,000,000/$50,000,000; General Liability: $5,000,000 per occurrence; Cyber Liability: $10,000,000 per claim; Directors and Officers: $10,000,000; Employment Practices Liability: $2,000,000",
+      "confidence": 0.96,
+      "source_section": "Article 10 - Insurance and Risk Management",
+      "supporting_evidence": [
+        "Extremely high professional liability limits at $25M/$50M",
+        "Comprehensive insurance portfolio beyond standard requirements",
+        "Cyber liability coverage at $10M level",
+        "Multiple specialized insurance coverages",
+        "A.M. Best A- rating requirements"
+      ]
+    },
+    "termination": {
+      "classification": "Yes",
+      "extracted_content": "Either party may terminate this Agreement: For convenience with sixty (60) days written notice; For material breach with thirty (30) days cure period; Immediately for professional misconduct or malpractice. Upon termination, Firm shall deliver complete client files within thirty (30) days",
+      "confidence": 0.94,
+      "source_section": "Article 8 - Termination and Transition",
+      "supporting_evidence": [
+        "Termination for convenience with 60-day notice",
+        "Material breach termination with 30-day cure period",
+        "Immediate termination for professional misconduct",
+        "File delivery and transition assistance provisions"
+      ]
+    },
+    "federal_requirements": {
+      "classification": "Yes",
+      "extracted_content": "Legal services shall comply with: Foreign Corrupt Practices Act requirements; Export Administration Regulations; Office of Foreign Assets Control sanctions; Anti-money laundering regulations. Export control compliance includes EAR, ITAR, OFAC sanctions, and country-specific legal restrictions",
+      "confidence": 0.95,
+      "source_section": "Article 9.2 - Federal Compliance and Article 12.3",
+      "supporting_evidence": [
+        "FCPA compliance requirements",
+        "Export control regulations (EAR/ITAR)",
+        "OFAC sanctions compliance",
+        "Anti-money laundering regulations",
+        "Comprehensive federal regulatory compliance"
+      ]
+    },
+    "ability_to_assign_contract": {
+      "classification": "No",
+      "extracted_content": "This Agreement may not be assigned without written consent, except: Assignment to successor law firm in merger; Assignment to affiliated professional entities; Assignment in connection with practice group acquisition",
+      "confidence": 0.90,
+      "source_section": "Article 15.2 - Assignment",
+      "supporting_evidence": [
+        "General prohibition on assignment without consent",
+        "Limited exceptions for law firm mergers and acquisitions",
+        "Affiliated professional entity assignment allowed",
+        "Practice group acquisition exceptions"
+      ]
+    },
+    "labor_escalation": {
+      "classification": "Yes",
+      "extracted_content": "Hourly rates may be increased annually by the lesser of: Five percent (5%) of current rates; Consumer Price Index increase for professional services; Market rate adjustments as agreed by parties",
+      "confidence": 0.92,
+      "source_section": "Article 2.2 - Rate Escalation",
+      "supporting_evidence": [
+        "Annual rate escalation up to 5%",
+        "CPI adjustment option for professional services",
+        "Market rate adjustment capability",
+        "Multiple escalation methodologies available"
+      ]
+    },
+    "prevailing_wages": {
+      "classification": "NA",
+      "extracted_content": "Professional legal services agreement does not include prevailing wage requirements. Attorney compensation based on professional hourly rates rather than prevailing wage standards",
+      "confidence": 0.88,
+      "source_section": "Article 2 - Billing Rates and Payment Terms",
+      "supporting_evidence": [
+        "Professional services contract with attorney hourly rates",
+        "No prevailing wage law applicability to legal services",
+        "Professional compensation structure rather than labor-based",
+        "Legal profession exempt from prevailing wage requirements"
+      ]
+    },
+    "bill_rates_included": {
+      "classification": "Yes",
+      "extracted_content": "Attorney Hourly Rates: Senior Partners: $950 - $1,200 per hour; Partners: $750 - $950 per hour; Senior Associates: $550 - $750 per hour; Associates: $350 - $550 per hour; Junior Associates: $250 - $350 per hour; Paralegals: $175 - $250 per hour; Contract Attorneys: $200 - $400 per hour",
+      "confidence": 0.98,
+      "source_section": "Article 2.1 - Attorney Hourly Rates",
+      "supporting_evidence": [
+        "Comprehensive hourly rate schedule by position level",
+        "Rate ranges for each attorney and paralegal category",
+        "Contract attorney rates specified",
+        "Detailed billing rate structure included"
+      ]
+    },
+    "additional_invoice_instructions": {
+      "classification": ["Supporting_Documentation", "Submittal_Requirements", "Portal"],
+      "extracted_content": "All invoices shall include: Attorney and paralegal time descriptions; Date, duration, and nature of services; Matter codes and client reference numbers; Expense details with supporting documentation. Firm shall submit invoices through Client's electronic legal billing system, including LEDES format compliance, task-based activity codes, electronic approval workflows",
+      "confidence": 0.96,
+      "source_section": "Article 3.4 - Detailed Billing and Article 3.5 - Electronic Billing",
+      "supporting_evidence": [
+        "Comprehensive supporting documentation requirements",
+        "Electronic billing system submission mandate",
+        "LEDES format compliance required",
+        "Detailed time and expense documentation requirements"
+      ]
+    },
+    "nda": {
+      "classification": "Yes",
+      "extracted_content": "All communications between Firm and Client are protected by attorney-client privilege and work product doctrine. Firm shall maintain strict confidentiality of all Client information, including business strategies, financial data, technical information, and legal strategies",
+      "confidence": 0.97,
+      "source_section": "Article 4 - Confidentiality and Attorney-Client Privilege",
+      "supporting_evidence": [
+        "Attorney-client privilege protection",
+        "Comprehensive confidentiality obligations",
+        "Protection of business and technical information",
+        "Legal strategy confidentiality requirements"
+      ]
+    },
+    "site_requirements": {
+      "classification": ["Background_Check", "CyberSecurity_Requirements"],
+      "extracted_content": "Firm maintains comprehensive conflict checking systems to prevent representation conflicts. Firm implements advanced cybersecurity measures including multi-factor authentication, encrypted communication and document storage, regular security audits and penetration testing, incident response and breach notification procedures",
+      "confidence": 0.89,
+      "source_section": "Article 4.3 - Conflict of Interest Screening and Article 4.4 - Information Security",
+      "supporting_evidence": [
+        "Comprehensive conflict checking system (background verification)",
+        "Advanced cybersecurity requirements",
+        "Multi-factor authentication implementation",
+        "Regular security audits and penetration testing"
+      ]
+    },
+    "change_order_process": {
+      "classification": "Yes",
+      "extracted_content": "For specific matters, parties may agree to: Fixed fee arrangements for defined scope projects; Contingency fee arrangements for recovery matters; Success fee bonuses for significant achievements; Blended rate structures for high-volume work; Budget caps with monthly spending limits. This Agreement may only be modified by written agreement signed by authorized representatives",
+      "confidence": 0.87,
+      "source_section": "Article 2.3 - Alternative Fee Arrangements and Article 15.5 - Amendment",
+      "supporting_evidence": [
+        "Alternative fee arrangement modification process",
+        "Written agreement requirement for modifications",
+        "Authorized representative signature requirement",
+        "Structured change process for fee arrangements"
+      ]
+    },
+    "shipping_terms": {
+      "classification": "Not_Included_In_Terms",
+      "extracted_content": "Professional legal services agreement does not include shipping terms. Services are intellectual property based rather than physical delivery based",
+      "confidence": 0.86,
+      "source_section": "Full Contract Review",
+      "supporting_evidence": [
+        "Professional services contract without physical deliveries",
+        "Intellectual property and legal service focus",
+        "No shipping or delivery terms in contract",
+        "Services performed rather than products shipped"
+      ]
+    },
+    "deliverable_requirements": {
+      "classification": "Yes",
+      "extracted_content": "Firm shall provide comprehensive legal services including energy regulatory compliance, international transaction structuring, environmental law, corporate governance, contract negotiation, litigation support, and IP protection. Upon termination, Firm shall deliver complete client files within thirty (30) days and provide reasonable transition assistance",
+      "confidence": 0.91,
+      "source_section": "Article 1 - Scope of Legal Services and Article 8.2 - File Transition",
+      "supporting_evidence": [
+        "Comprehensive legal service deliverable requirements",
+        "Complete client file delivery upon termination",
+        "Transition assistance provisions",
+        "Detailed scope of legal services deliverables"
+      ]
+    },
+    "small_business_reporting_requirements": {
+      "classification": "Yes",
+      "extracted_content": "Firm commits to meaningful participation by: Minority-owned law firms: 15% of external counsel spend; Women-owned law firms: 10% of external counsel spend; Veteran-owned law firms: 5% of external counsel spend; Small disadvantaged businesses: 20% of total external spend. Firm shall provide quarterly diversity reports including dollar amounts, types of matters, percentages, and identification efforts",
+      "confidence": 0.94,
+      "source_section": "Article 11 - Small Business Participation",
+      "supporting_evidence": [
+        "Specific diverse counsel participation goals",
+        "Quarterly diversity reporting requirements",
+        "Multiple business categories with percentage targets",
+        "Comprehensive reporting metrics including dollars and efforts"
+      ]
+    },
+    "licensing": {
+      "classification": "Yes",
+      "extracted_content": "Firm shall comply with all applicable professional rules including New York Rules of Professional Conduct, American Bar Association Model Rules, jurisdiction-specific professional standards, and International Bar Association guidelines. Firm attorneys maintain current CLE requirements and specialized certifications in relevant practice areas",
+      "confidence": 0.95,
+      "source_section": "Article 9.1 - Professional Rules and Article 9.3 - Continuing Legal Education",
+      "supporting_evidence": [
+        "Multiple professional conduct rule compliance requirements",
+        "Current CLE requirement maintenance",
+        "Specialized certification requirements",
+        "Jurisdiction-specific professional standard compliance"
+      ]
+    },
+    "suspension": {
+      "classification": "Yes",
+      "extracted_content": "Pending dispute resolution, Firm shall continue providing legal services unless directed otherwise by Client. Either party may terminate immediately for professional misconduct or malpractice",
+      "confidence": 0.85,
+      "source_section": "Article 14.4 - Continued Service and Article 8.1 - Termination Rights",
+      "supporting_evidence": [
+        "Client direction capability for service suspension",
+        "Immediate termination right for professional misconduct",
+        "Continued service requirement pending dispute resolution",
+        "Professional misconduct suspension trigger"
+      ]
+    },
+    "effective_date": {
+      "classification": "2024-05-01",
+      "extracted_content": "This Professional Services Agreement is entered into effective May 1, 2024",
+      "confidence": 0.99,
+      "source_section": "Contract Header",
+      "supporting_evidence": [
+        "Clearly stated effective date",
+        "Consistent date references throughout contract",
+        "Signature block date confirmation"
+      ]
+    },
+    "expiration_date": {
+      "classification": "2027-04-30",
+      "extracted_content": "Expiration Date: April 30, 2027",
+      "confidence": 0.99,
+      "source_section": "Contract Header",
+      "supporting_evidence": [
+        "Clearly stated expiration date",
+        "Three-year term duration",
+        "Consistent with effective date structure"
+      ]
+    }
+  },
+  "extraction_metadata": {
+    "contract_complexity_indicators": {
+      "articles_count": 15,
+      "exhibits_count": 6,
+      "pages": 30,
+      "word_count": "~20,000",
+      "legal_complexity": "Very High",
+      "professional_complexity": "Very High",
+      "regulatory_complexity": "Very High"
+    },
+    "professional_services_elements": {
+      "monthly_retainer": "$150,000",
+      "rate_range": "$250-$1,200 per hour",
+      "service_type": "Comprehensive Legal Services",
+      "practice_areas": 8,
+      "regulatory_bodies": 8,
+      "international_scope": "Yes"
+    },
+    "schema_coverage": {
+      "total_fields": 27,
+      "fields_with_values": 27,
+      "coverage_percentage": 100,
+      "high_confidence_fields": 25,
+      "medium_confidence_fields": 2,
+      "low_confidence_fields": 0
+    },
+    "evidence_quality": {
+      "average_confidence": 0.92,
+      "fields_with_strong_evidence": 24,
+      "fields_with_multiple_sources": 19,
+      "fields_requiring_interpretation": 3
+    },
+    "extraction_challenges": [
+      "Professional liability limitation structure complex and multi-layered",
+      "Intellectual property allocation spans multiple article sections",
+      "Federal compliance requirements comprehensive and overlapping",
+      "Insurance coverage significantly exceeds standard professional requirements",
+      "Diversity reporting goals very specific with detailed metrics"
+    ]
+  }
+}

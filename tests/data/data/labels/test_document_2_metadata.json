@@ -1,0 +1,12 @@
+{
+  "template_type": "service_agreement",
+  "generated": true,
+  "variables": {
+    "company_a": "InnovateCo",
+    "customer_name": "Digital Dynamics",
+    "customer_address": "987 Tech Lane, Innovation Hub",
+    "payment_terms": "Payment due within 45 days",
+    "warranty": "6-month full warranty",
+    "service_period": "2 years"
+  }
+}

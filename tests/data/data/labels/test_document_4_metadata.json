@@ -1,0 +1,12 @@
+{
+  "template_type": "service_agreement",
+  "generated": true,
+  "variables": {
+    "company_a": "TechCorp Ltd.",
+    "customer_name": "Enterprise Solutions",
+    "customer_address": "321 Commerce Way, Business District",
+    "payment_terms": "Immediate payment required",
+    "warranty": "12-month limited warranty",
+    "service_period": "1 year"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "payment_terms": {
+    "value": "Monthly invoicing",
+    "classification": "standard"
+  },
+  "warranty": {
+    "value": "Limited warranty applies",
+    "classification": "limited"
+  },
+  "customer_name": "ClientCorp",
+  "project_duration": "1 year",
+  "agreement_date": "2024-03-10"
+}

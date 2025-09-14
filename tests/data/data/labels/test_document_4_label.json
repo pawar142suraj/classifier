@@ -1,0 +1,11 @@
+{
+  "payment_terms": {
+    "value": "Immediate payment required",
+    "classification": "expedited"
+  },
+  "warranty": {
+    "value": "12-month limited warranty",
+    "classification": "limited"
+  },
+  "customer_name": "Enterprise Solutions"
+}

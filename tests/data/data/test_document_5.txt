@@ -1,0 +1,17 @@
+CONSULTING AGREEMENT
+
+Agreement between AlphaSystems (Consultant) and ClientCorp (Client).
+
+PAYMENT AND TERMS:
+- Payment Schedule: Monthly invoicing
+- Warranty: Limited warranty applies
+- Project Duration: 1 year
+
+CLIENT DETAILS:
+Name: ClientCorp
+Location: 123 Business Ave, Tech City
+
+This agreement is binding upon signature.
+
+Consultant: AlphaSystems
+Date: 2024-03-10

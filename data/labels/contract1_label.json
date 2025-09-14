@@ -1,0 +1,15 @@
+{
+    "fields": {
+        "payment_terms": {
+            "extracted_content":" Payments are due every month.",
+            "classification": "monthly"
+        },
+        "warranty": {
+            "extracted_content": " Standard warranty is provided for 1 year.",
+            "classification": "standard"
+        },
+        "customer_name": {
+            "extracted_content": " John Doe"
+        }
+    }
+}

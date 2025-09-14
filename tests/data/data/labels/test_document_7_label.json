@@ -1,0 +1,13 @@
+{
+  "payment_terms": {
+    "value": "Payment upon completion",
+    "classification": "standard"
+  },
+  "warranty": {
+    "value": "6-month warranty on deliverables",
+    "classification": "full"
+  },
+  "customer_name": "Enterprise Solutions",
+  "project_duration": "6 months",
+  "agreement_date": "2024-03-10"
+}

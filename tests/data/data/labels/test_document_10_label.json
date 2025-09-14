@@ -1,0 +1,13 @@
+{
+  "payment_terms": {
+    "value": "Payment upon completion",
+    "classification": "standard"
+  },
+  "warranty": {
+    "value": "Work guaranteed for 90 days",
+    "classification": "full"
+  },
+  "customer_name": "Global Industries",
+  "project_duration": "6 months",
+  "agreement_date": "2024-03-10"
+}

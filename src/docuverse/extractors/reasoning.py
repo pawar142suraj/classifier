@@ -19,6 +19,7 @@ import logging
 from .base import BaseExtractor
 from .vector_rag import VectorRAGExtractor, HybridRetriever, AdvancedChunker, RetrievalResult
 from ..core.config import LLMConfig, ReasoningConfig, VectorRAGConfig, ExtractionMethod
+from ..utils.page_extractor import page_extractor, get_page_info, extract_text_with_pages
 
 logger = logging.getLogger(__name__)
 
@@ -40,13 +41,16 @@ class ReasoningStep:
 
 @dataclass
 class ExtractionEvidence:
-    """Evidence supporting an extracted field."""
+    """Evidence supporting an extracted field with page information."""
     field_name: str
     extracted_value: Any
     evidence_text: str
     confidence: float
     reasoning: str
     source_chunks: List[str] = None
+    page_number: Optional[int] = None
+    page_context: Optional[str] = None
+    total_pages: Optional[int] = None
     
     def __post_init__(self):
         if self.source_chunks is None:
@@ -123,6 +127,41 @@ class ReasoningExtractor(BaseExtractor):
         
         logger.info(f"Initialized ReasoningExtractor with {method_type.value}")
     
+    def _create_evidence_with_pages(self, field_name: str, extracted_value: Any, 
+                                   evidence_text: str, confidence: float, 
+                                   reasoning: str, source_chunks: List[str] = None) -> ExtractionEvidence:
+        """Create extraction evidence with page information."""
+        # Find evidence position in document
+        page_number = None
+        page_context = None
+        total_pages = len(getattr(self, 'document_pages', []))
+        
+        if hasattr(self, 'document_text') and evidence_text:
+            # Find text position
+            text_pos = self.document_text.find(evidence_text)
+            if text_pos != -1:
+                # Get page information
+                page_info = get_page_info(self.document_text, text_pos, text_pos + len(evidence_text))
+                page_number = page_info.get('page_number')
+                
+                # Get enhanced page context
+                text_with_pages = extract_text_with_pages(
+                    self.document_text, text_pos, text_pos + len(evidence_text), context_chars=150
+                )
+                page_context = text_with_pages.get('context', '')
+        
+        return ExtractionEvidence(
+            field_name=field_name,
+            extracted_value=extracted_value,
+            evidence_text=evidence_text,
+            confidence=confidence,
+            reasoning=reasoning,
+            source_chunks=source_chunks or [],
+            page_number=page_number,
+            page_context=page_context,
+            total_pages=total_pages
+        )
+    
     def _load_schema(self, schema_path: Union[str, Path]) -> Dict[str, Any]:
         """Load schema from JSON file."""
         try:
@@ -135,7 +174,7 @@ class ReasoningExtractor(BaseExtractor):
             return {}
     
     def extract(self, document: Dict[str, Any]) -> Dict[str, Any]:
-        """Extract using reasoning approach with optional retrieval augmentation."""
+        """Extract using reasoning approach with optional retrieval augmentation and page tracking."""
         start_time = time.time()
         
         # Reset reasoning state
@@ -144,6 +183,11 @@ class ReasoningExtractor(BaseExtractor):
         
         document_text = self._prepare_document_text(document)
         document_metadata = document.get("metadata", {})
+        
+        # Initialize page extraction
+        self.document_text = document_text
+        self.document_pages = page_extractor.extract_pages(document_text)
+        logger.info(f"Processing document with {len(self.document_pages)} pages for reasoning extraction")
         
         # Prepare retrieval context if Vector RAG is enabled
         retrieval_context = None
@@ -507,7 +551,7 @@ Step {step_num + 1} - Information Extraction for '{field_name}':"""
         
         # Record evidence
         if extracted_content:
-            evidence = ExtractionEvidence(
+            evidence = self._create_evidence_with_pages(
                 field_name=field_name,
                 extracted_value=extracted_content,
                 evidence_text=self._get_relevant_excerpt(document_text, field_name)[:300],
@@ -866,7 +910,7 @@ REASONING: [explanation]"""
         
         # Record evidence
         if extracted_value is not None:
-            evidence = ExtractionEvidence(
+            evidence = self._create_evidence_with_pages(
                 field_name=field_name,
                 extracted_value=extracted_value,
                 evidence_text=self._get_relevant_excerpt(document_text, field_name)[:300],
@@ -1116,7 +1160,7 @@ Format:
         
         # Record evidence
         if extracted_value is not None:
-            evidence = ExtractionEvidence(
+            evidence = self._create_evidence_with_pages(
                 field_name=field_name,
                 extracted_value=extracted_value,
                 evidence_text=self._get_relevant_excerpt(document_text, field_name)[:500],
@@ -1258,7 +1302,7 @@ Format:
             # Clean up extracted value
             cleaned_value = value.strip().strip('"[](){}').strip()
             if cleaned_value.lower() not in ['none', 'null', 'not found', 'n/a', '']:
-                evidence = ExtractionEvidence(
+                evidence = self._create_evidence_with_pages(
                     field_name=field_name.lower(),
                     extracted_value=cleaned_value,
                     evidence_text=evidence_text.strip(),

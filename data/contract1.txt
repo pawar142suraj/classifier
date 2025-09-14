@@ -1,0 +1,41 @@
+SERVICE AGREEMENT CONTRACT
+
+Contract Number: SA-2024-001
+Date: January 15, 2024
+
+This Service Agreement is entered into between TechCorp Inc. ("Provider") and John Doe ("Customer").
+
+PAYMENT TERMS:
+Payments are due every month on the 15th of each month. Payment method accepted: bank transfer, credit card, or check.
+
+WARRANTY INFORMATION:
+Standard warranty is provided for 1 year from the date of service completion. This covers all defects in materials and workmanship under normal use.
+
+CUSTOMER DETAILS:
+Customer Name: John Doe
+Customer Company: Doe Enterprises LLC
+Customer Email: john.doe@doeenterprises.com
+Customer Phone: (555) 123-4567
+Customer Address: 123 Business Ave, Suite 100, City, State 12345
+
+CONTRACT DETAILS:
+Total Contract Value: $50,000
+Service Duration: 12 months
+Start Date: February 1, 2024
+End Date: January 31, 2025
+
+SERVICE DESCRIPTION:
+Comprehensive IT support and maintenance services including:
+- 24/7 help desk support
+- Regular system maintenance
+- Security updates and monitoring
+- Monthly performance reports
+
+TERMS AND CONDITIONS:
+This agreement shall remain in effect for the duration specified above. Either party may terminate this agreement with 30 days written notice.
+
+Signed by:
+TechCorp Inc.
+John Doe
+
+END OF CONTRACT

@@ -1,0 +1,14 @@
+{
+  "template_type": "purchase_order",
+  "generated": true,
+  "variables": {
+    "company_a": "BetaWorks LLC",
+    "customer_name": "StartupXYZ",
+    "customer_address": "789 Innovation St, Silicon Valley",
+    "payment_terms": "Cash on delivery",
+    "warranty": "Limited 1-year warranty",
+    "delivery_date": "2024-05-10",
+    "po_number": "PO-2024-004",
+    "amount": "25,000"
+  }
+}

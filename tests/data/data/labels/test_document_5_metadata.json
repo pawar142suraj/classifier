@@ -1,0 +1,13 @@
+{
+  "template_type": "consulting_agreement",
+  "generated": true,
+  "variables": {
+    "company_a": "AlphaSystems",
+    "customer_name": "ClientCorp",
+    "customer_address": "123 Business Ave, Tech City",
+    "payment_terms": "Monthly invoicing",
+    "warranty": "Limited warranty applies",
+    "project_duration": "1 year",
+    "agreement_date": "2024-03-10"
+  }
+}
