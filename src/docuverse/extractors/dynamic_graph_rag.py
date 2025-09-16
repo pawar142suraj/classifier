@@ -68,6 +68,7 @@ class ExtractionResult:
 
 
 @dataclass
+@dataclass
 class ExtractionState:
     """Tracks the state of extraction through multiple iterations."""
     iteration: int
@@ -568,11 +569,17 @@ class DynamicGraphRAGExtractor(BaseExtractor):
         self.extraction_states: List[ExtractionState] = []
         
         # Initialize graph database manager
-        graph_db_config = {
-            "graph_db_uri": dynamic_config.base_graph_config.graph_db_uri,
-            "use_lightweight_kg": dynamic_config.base_graph_config.use_lightweight_kg
-        }
-        self.graph_db_manager = GraphDatabaseManager(graph_db_config) if not dynamic_config.base_graph_config.use_lightweight_kg else None
+        if not dynamic_config.base_graph_config.use_lightweight_kg:
+            # Only access credentials when not using lightweight mode
+            graph_db_config = {
+                "graph_db_uri": dynamic_config.base_graph_config.graph_db_uri,
+                "graph_db_user": dynamic_config.base_graph_config.graph_db_user,
+                "graph_db_password": dynamic_config.base_graph_config.graph_db_password,
+                "use_lightweight_kg": dynamic_config.base_graph_config.use_lightweight_kg
+            }
+            self.graph_db_manager = GraphDatabaseManager(graph_db_config)
+        else:
+            self.graph_db_manager = None
         
         logger.info("Initialized DynamicGraphRAGExtractor with novel adaptive capabilities")
         if self.graph_db_manager:
@@ -598,11 +605,15 @@ class DynamicGraphRAGExtractor(BaseExtractor):
         # Try to retrieve existing knowledge graph from database
         if self.graph_db_manager:
             existing_kg = self.graph_db_manager.retrieve_knowledge_graph(document_id)
-            if existing_kg:
+            if existing_kg and len(existing_kg.entities) > 0:
                 logger.info(f"Retrieved existing knowledge graph for {document_id}")
                 self.knowledge_graph = existing_kg
+                # Still need to initialize other components even with existing graph
+                self.uncertainty_estimator = DynamicUncertaintyEstimator(extraction_schema)
+                self.graph_expander = AdaptiveGraphExpander(self.knowledge_graph, extraction_schema)
+                self.extraction_states = []
             else:
-                # Initialize components for this extraction
+                # No existing graph or empty graph - create new one
                 self._initialize_extraction(document_text, extraction_schema)
                 # Store the newly created knowledge graph
                 self.graph_db_manager.store_knowledge_graph(self.knowledge_graph, document_id)
@@ -734,7 +745,8 @@ class DynamicGraphRAGExtractor(BaseExtractor):
                 confidence_scores={us.field_name: us.confidence for us in uncertainty_scores},
                 uncertainty_scores=uncertainty_scores,
                 graph_stats=self._get_graph_stats(),
-                refinement_history=[]
+                refinement_history=[],
+                evidence={}  # Initialize empty evidence dict
             )
             self.extraction_states.append(extraction_state)
             

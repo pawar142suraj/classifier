@@ -56,6 +56,8 @@ class GraphRAGConfig(BaseModel):
     entity_extraction_model: str = Field(default="en_core_web_sm")
     relation_extraction_model: Optional[str] = None
     graph_db_uri: Optional[str] = Field(default="bolt://localhost:7687")
+    graph_db_user: str = Field(default="neo4j", description="Neo4j database username")
+    graph_db_password: str = Field(default="Password", description="Neo4j database password")
     max_subgraph_size: int = Field(default=50, description="Maximum nodes in subgraph")
     entity_similarity_threshold: float = Field(default=0.8)
     use_lightweight_kg: bool = Field(default=True)

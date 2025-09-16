@@ -80,10 +80,12 @@ def demo_persistent_storage():
     print("\n💾 Demo: Persistent Graph Database Storage")
     print("-" * 50)
     
-    # Configure for persistent storage
+    # Configure for persistent storage with correct credentials
     base_graph_config = GraphRAGConfig(
         use_lightweight_kg=False,  # This enables database storage
         graph_db_uri="bolt://localhost:7687",  # Neo4j default
+        graph_db_user="neo4j",
+        graph_db_password="Password",
         max_subgraph_size=30,
         entity_similarity_threshold=0.7
     )
@@ -116,7 +118,7 @@ def test_graph_database_connectivity():
     print("Testing Neo4j database...")
     try:
         from docuverse.utils.graph_db import Neo4jGraphDB
-        neo4j_db = Neo4jGraphDB("bolt://localhost:7687", "neo4j", "password")
+        neo4j_db = Neo4jGraphDB("bolt://localhost:7687", "neo4j", "Password")
         if neo4j_db.connect():
             print("✅ Neo4j database: Connected")
             neo4j_db.disconnect()
@@ -139,10 +141,14 @@ def load_document(doc_path: str) -> dict:
     with open(doc_path, 'r') as f:
         content = f.read()
     
+    # Use just the filename stem as document ID for consistency
+    document_id = Path(doc_path).stem
+    
     return {
         "content": content,
         "metadata": {
-            "source": doc_path,
+            "source": document_id,  # Use clean document ID
+            "file_path": doc_path,  # Keep original path for reference
             "timestamp": datetime.now().isoformat(),
             "type": "contract"
         }
@@ -188,13 +194,21 @@ def main():
         result_memory = extractor_memory.extract(document, schema)
         
         print("✅ In-memory extraction completed")
-        print(f"Result: {json.dumps(result_memory, indent=2)}")
+        # Handle the result properly - it might be a dict or an object
+        if hasattr(result_memory, 'extracted_data'):
+            # It's an ExtractionResult object
+            print(f"Result: {json.dumps(result_memory.extracted_data, indent=2)}")
+        else:
+            # It's a plain dict
+            print(f"Result: {json.dumps(result_memory, indent=2)}")
         
         metadata_memory = extractor_memory.get_extraction_metadata()
         print(f"Graph stats: {metadata_memory.get('graph_stats', {})}")
         
     except Exception as e:
         print(f"❌ In-memory extraction failed: {e}")
+        import traceback
+        traceback.print_exc()
     
     # Demo 2: Persistent Storage (will fallback to in-memory if Neo4j not available)
     print("\n" + "=" * 70)
@@ -207,13 +221,21 @@ def main():
         result_persistent = extractor_persistent.extract(document, schema)
         
         print("✅ Persistent storage extraction completed")
-        print(f"Result: {json.dumps(result_persistent, indent=2)}")
+        # Handle the result properly - it might be a dict or an object
+        if hasattr(result_persistent, 'extracted_data'):
+            # It's an ExtractionResult object
+            print(f"Result: {json.dumps(result_persistent.extracted_data, indent=2)}")
+        else:
+            # It's a plain dict
+            print(f"Result: {json.dumps(result_persistent, indent=2)}")
         
         metadata_persistent = extractor_persistent.get_extraction_metadata()
         print(f"Graph stats: {metadata_persistent.get('graph_stats', {})}")
         
     except Exception as e:
         print(f"❌ Persistent storage extraction failed: {e}")
+        import traceback
+        traceback.print_exc()
     
     # Summary
     print("\n" + "=" * 70)
